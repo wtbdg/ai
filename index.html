@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Emotion Reader</title>
+    <style>
+      #canvas {
+        width: 400px;
+      }
+
+      #emotion {
+        margin-top: 2em !important;
+        text-align: center;
+      }
+
+      #emotion div {
+        padding: 0.5em;
+        display: inline-block;
+        opacity: 0;
+      }
+      .container {
+        margin-top: 2em !important;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        text-align: center;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+    </style>
+    <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
+    <link rel="icon" href="favicon.ico" type="image/icon" />
+  </head>
+  <body onload="main()">
+    <div class="container">
+      <h1>Face Expression</h1>
+      <canvas id="canvas" class="canvas" width="400"></canvas>
+      <div id="displacement"></div>
+
+      <div id="emotion">
+        <!-- <div id="emotion-anger">
+          <img src="assets/icons/angry.png" alt="" />
+        </div>
+        <div id="emotion-fear">
+          <img src="assets/icons/fear.png" alt="" />
+        </div> -->
+        <div id="emotion-happy">
+          <img src="assets/icons/happy.png" height="100" width="100" alt="Happy" />
+        </div>
+        <div id="emotion-sad">
+          <img src="assets/icons/sad.png" height="100" width="100" alt="Sad" />
+        </div>
+        <div id="emotion-surprise">
+          <img src="assets/icons/surprise.png" height="100" width="100" alt="Surprise" />
+        </div>
+      </div>
+    </div>
+    <script src="src/js/jeelizFaceTransfer.js"></script>
+    <script src="src/js/emotion.js"></script>
+    <script src="src/js/main.js"></script>
+  </body>
+</html>
