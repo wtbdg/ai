@@ -18,7 +18,8 @@
       #emotion div {
         padding: 0.5em;
         display: inline-block;
-        opacity: 0;
+        opacity: 0.1;
+        transition: opacity .5s ease-in;
       }
       .container {
         margin-top: 2em !important;
@@ -41,10 +42,7 @@
       <div id="displacement"></div>
 
       <div id="emotion">
-        <!-- <div id="emotion-anger">
-          <img src="assets/icons/angry.png" alt="" />
-        </div>
-        <div id="emotion-fear">
+        <!-- <div id="emotion-fear">
           <img src="assets/icons/fear.png" alt="" />
         </div> -->
         <div id="emotion-happy">
@@ -53,9 +51,12 @@
         <div id="emotion-sad">
           <img src="assets/icons/sad.png" height="100" width="100" alt="Sad" />
         </div>
-        <div id="emotion-surprise">
-          <img src="assets/icons/surprise.png" height="100" width="100" alt="Surprise" />
+        <div id="emotion-anger">
+          <img src="assets/icons/angry.png" height="100" width="100" alt="Angry" />
         </div>
+        <!-- <div id="emotion-surprise">
+          <img src="assets/icons/surprise.png" height="100" width="100" alt="Surprise" />
+        </div> -->
       </div>
     </div>
     <script src="src/js/jeelizFaceTransfer.js"></script>

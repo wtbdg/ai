@@ -46,8 +46,8 @@ function nextFrame() {
     getMeanDisplacement(rotation);
     if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
-      // document.getElementById("emotion-anger").style.opacity = emotions.anger;
-      document.getElementById("emotion-surprise").style.opacity = emotions.surprise;
+      document.getElementById("emotion-anger").style.opacity = emotions.anger;
+      // document.getElementById("emotion-surprise").style.opacity = emotions.surprise;
       document.getElementById("emotion-happy").style.opacity = emotions.happy;
       // document.getElementById("emotion-fear").style.opacity = emotions.fear;
       document.getElementById("emotion-sad").style.opacity = emotions.sad;
