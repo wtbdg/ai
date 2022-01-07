@@ -8,6 +8,7 @@
     <style>
       body{
         margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
       .canvas {
         height: auto;
@@ -33,7 +34,6 @@
 
       h1 {
         text-align: center;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         font-size: .73rem;
       }
       #meter {
@@ -56,6 +56,21 @@
         width: 100%;
         transition: height .5s ease-in;
       }
+      .meter-happy #meter div {
+        height: 90%;
+      }
+      .meter-happy:after {
+        background-color: #fff;
+        border-radius: 3rem;
+        content: 'GrowHappy';
+        display: block;
+        color: mediumblue;
+        padding: .5rem .75rem;
+        position: relative;
+        margin: 0 auto;
+        margin-top: -15%;
+        width: 5rem;
+      }
       .canvas-wrapper {
         position: relative;
       }
@@ -71,7 +86,7 @@
   <body onload="main()">
     <div class="container">
       <h1 style="display: none;">AI Expression Emoticon</h1>
-      <div class="canvas-wrapper">
+      <div id="canvas-wrap" class="canvas-wrapper">
         <canvas id="canvas" class="canvas" width="320" height="600"></canvas>
         <!-- <div id="displacement"></div> -->
         <div id="meter">
@@ -79,10 +94,10 @@
         </div>
       </div>
 
-      <div id="emotion">
-        <!-- <div id="emotion-fear">
+      <!-- <div id="emotion">
+        <div id="emotion-fear">
           <img src="assets/icons/fear.png" alt="" />
-        </div> -->
+        </div>
         <div id="emotion-happy">
           <img src="assets/icons/happy.png" height="45" width="45" alt="Happy" />
         </div>
@@ -92,10 +107,10 @@
         <div id="emotion-anger">
           <img src="assets/icons/angry.png" height="45" width="45" alt="Angry" />
         </div>
-        <!-- <div id="emotion-surprise">
+        <div id="emotion-surprise">
           <img src="assets/icons/surprise.png" height="100" width="100" alt="Surprise" />
-        </div> -->
-      </div>
+        </div>
+      </div> -->
     </div>
     <script src="src/js/jeelizFaceTransfer.js"></script>
     <script src="src/js/emotion.js"></script>

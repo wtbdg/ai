@@ -46,16 +46,17 @@ function nextFrame() {
     getMeanDisplacement(rotation);
     if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
+      var meter = document.getElementById("canvas-wrap");
       if (emotions.happy >= 0.5) {
-        document.getElementById("meter-value").style.height = "90%";
+        meter.classList.add("meter-happy");
       } else {
-        document.getElementById("meter-value").style.height = "20%";
+        meter.classList.remove("meter-happy");
       };
-      document.getElementById("emotion-anger").style.opacity = emotions.anger;
+      // document.getElementById("emotion-anger").style.opacity = emotions.anger;
       // document.getElementById("emotion-surprise").style.opacity = emotions.surprise;
-      document.getElementById("emotion-happy").style.opacity = emotions.happy;
+      // document.getElementById("emotion-happy").style.opacity = emotions.happy;
       // document.getElementById("emotion-fear").style.opacity = emotions.fear;
-      document.getElementById("emotion-sad").style.opacity = emotions.sad;
+      // document.getElementById("emotion-sad").style.opacity = emotions.sad;
     }
 
     //**************************************************************************** */

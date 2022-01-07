@@ -1,6 +1,6 @@
 # AI Expression Emoticon
 
-Emoticon based on your expression in a camera.
+Emoticon based on your expression in a camera and metered happyness value.
 
 ## Todo
 
