@@ -6,12 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>AI Expression Emoticon</title>
     <style>
-      #canvas {
-        width: 400px;
+      body{
+        margin: 0;
+      }
+      .canvas {
+        height: auto;
+        width: 320px;
       }
 
       #emotion {
-        margin-top: 2em !important;
+        margin-top: 1rem;
         text-align: center;
       }
 
@@ -22,14 +26,20 @@
         transition: opacity .5s ease-in;
       }
       .container {
-        margin-top: 2em !important;
-        max-width: 400px;
+        margin-top: 1rem;
+        max-width: 320px;
         margin: 0 auto;
       }
 
       h1 {
         text-align: center;
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: .73rem;
+      }
+      @media (max-width: 400px) {
+        .canvas {
+          width: 100%;
+        }
       }
     </style>
     <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
@@ -37,8 +47,8 @@
   </head>
   <body onload="main()">
     <div class="container">
-      <h1>AI Expression Emoticon</h1>
-      <canvas id="canvas" class="canvas" width="400"></canvas>
+      <h1 style="display: none;">AI Expression Emoticon</h1>
+      <canvas id="canvas" class="canvas" width="320" height="600"></canvas>
       <div id="displacement"></div>
 
       <div id="emotion">
@@ -46,13 +56,13 @@
           <img src="assets/icons/fear.png" alt="" />
         </div> -->
         <div id="emotion-happy">
-          <img src="assets/icons/happy.png" height="100" width="100" alt="Happy" />
+          <img src="assets/icons/happy.png" height="45" width="45" alt="Happy" />
         </div>
         <div id="emotion-sad">
-          <img src="assets/icons/sad.png" height="100" width="100" alt="Sad" />
+          <img src="assets/icons/sad.png" height="45" width="45" alt="Sad" />
         </div>
         <div id="emotion-anger">
-          <img src="assets/icons/angry.png" height="100" width="100" alt="Angry" />
+          <img src="assets/icons/angry.png" height="45" width="45" alt="Angry" />
         </div>
         <!-- <div id="emotion-surprise">
           <img src="assets/icons/surprise.png" height="100" width="100" alt="Surprise" />
