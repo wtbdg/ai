@@ -46,6 +46,11 @@ function nextFrame() {
     getMeanDisplacement(rotation);
     if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
+      if (emotions.happy >= 0.5) {
+        document.getElementById("meter-value").style.height = "90%";
+      } else {
+        document.getElementById("meter-value").style.height = "20%";
+      };
       document.getElementById("emotion-anger").style.opacity = emotions.anger;
       // document.getElementById("emotion-surprise").style.opacity = emotions.surprise;
       document.getElementById("emotion-happy").style.opacity = emotions.happy;
