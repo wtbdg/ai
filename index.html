@@ -85,9 +85,11 @@
     .canvas-wrapper {
       position: relative;
       line-height: 0;
+      overflow: hidden;
+      height: 40vh;
     }
 
-    @media (max-width: 400px) {
+    @media (max-width: 600px) {
       .canvas {
         width: 100%;
       }
@@ -159,7 +161,7 @@
       Webcam.snap(function (data_uri) {
         // display aiphoto in page
         document.getElementById('aiphoto').innerHTML =
-          '<img src="' + data_uri + '"/>';
+          '<img width="100%" height="auto" src="' + data_uri + '"/>';
       });
     }
   </script>
