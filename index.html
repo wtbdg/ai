@@ -36,8 +36,9 @@
       height: 5.5rem;
       width: .75rem;
       overflow: hidden;
-      position: relative;
-      margin-top: -50%;
+      position: absolute;
+      top: 1rem;
+      left: .5rem;
       margin-left: 5%;
     }
 
@@ -105,15 +106,16 @@
       padding: .3rem 1.5rem;
       font-size: 1rem;
     }
-
-
-
     #aiphoto {
       margin-top: -.5rem;
       background: #ddd;
       min-height: 15rem;
       width: 100%;
       line-height: 0;
+    }
+    .airesult {
+      height: auto;
+      width: 100%;
     }
   </style>
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
@@ -161,7 +163,7 @@
       Webcam.snap(function (data_uri) {
         // display aiphoto in page
         document.getElementById('aiphoto').innerHTML =
-          '<img width="100%" height="auto" src="' + data_uri + '"/>';
+          '<img class="airesult" src="' + data_uri + '"/>';
       });
     }
   </script>
