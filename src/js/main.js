@@ -47,11 +47,28 @@ function nextFrame() {
     if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
       var meter = document.getElementById("canvas-wrap");
-      if (emotions.happy >= 0.5) {
-        meter.classList.add("meter-happy");
-      } else {
+      if (emotions.happy <= 0.15) {
+        meter.classList.remove("meter-growhappy");
+        meter.classList.remove("meter-superhappy");
         meter.classList.remove("meter-happy");
       };
+      if (emotions.happy >= 0.2) {
+        meter.classList.remove("meter-growhappy");
+        meter.classList.remove("meter-superhappy");
+        meter.classList.add("meter-happy");
+      };
+      if (emotions.happy >= 0.3) {
+        meter.classList.remove("meter-growhappy");
+        meter.classList.remove("meter-happy");
+        meter.classList.add("meter-superhappy");
+      };
+      if (emotions.happy >= 0.4) {
+        meter.classList.remove("meter-superhappy");
+        meter.classList.remove("meter-happy");
+        meter.classList.add("meter-growhappy");
+      };
+      
+      document.getElementById("canvas-wrap").dataset.state = emotions.happy;
       // document.getElementById("emotion-anger").style.opacity = emotions.anger;
       // document.getElementById("emotion-surprise").style.opacity = emotions.surprise;
       // document.getElementById("emotion-happy").style.opacity = emotions.happy;

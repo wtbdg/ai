@@ -1,119 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>AI Expression Emoticon</title>
-    <style>
-      body{
-        margin: 0;
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>AI Expression Emoticon</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .canvas {
+      height: auto;
+      width: 320px;
+    }
+
+    .container {
+      margin-top: 1rem;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: .73rem;
+    }
+
+    #meter {
+      border: 2px solid yellow;
+      background-color: #fff;
+      border-radius: 3rem;
+      float: left;
+      height: 5.5rem;
+      width: .75rem;
+      overflow: hidden;
+      position: relative;
+      margin-top: -50%;
+      margin-left: 5%;
+    }
+
+    #meter div {
+      background-color: mediumblue;
+      position: absolute;
+      bottom: 0;
+      height: 10%;
+      width: 100%;
+      transition: height .5s ease-in;
+    }
+
+    .meter-happy #meter div {
+      height: 30%;
+    }
+    .meter-superhappy #meter div {
+      height: 50%;
+    }
+    .meter-growhappy #meter div {
+      height: 100%;
+    }
+
+    .meter-happy:after, .meter-superhappy:after, .meter-growhappy:after {
+      background-color: #fff;
+      border-radius: 3rem;
+      content: 'Happy';
+      display: block;
+      color: mediumblue;
+      padding: .5rem .75rem;
+      text-align: center;
+      position: relative;
+      margin: 0 auto;
+      margin-top: -15%;
+      width: 7rem;
+    }
+
+    .meter-superhappy:after {
+      content: 'SuperHappy';
+    }
+
+    .meter-growhappy:after {
+      content: 'GrowHappy';
+    }
+
+    .canvas-wrapper {
+      position: relative;
+      line-height: 0;
+    }
+
+    @media (max-width: 400px) {
       .canvas {
-        height: auto;
-        width: 320px;
-      }
-
-      #emotion {
-        margin-top: 1rem;
-        text-align: center;
-      }
-
-      #emotion div {
-        padding: 0.5em;
-        display: inline-block;
-        opacity: 0.1;
-        transition: opacity .5s ease-in;
-      }
-      .container {
-        margin-top: 1rem;
-        max-width: 320px;
-        margin: 0 auto;
-      }
-
-      h1 {
-        text-align: center;
-        font-size: .73rem;
-      }
-      #meter {
-        border: 2px solid yellow;
-        background-color: #fff;
-        border-radius: 3rem;
-        float: left;
-        height: 5.5rem;
-        width: .75rem;
-        overflow: hidden;
-        position: relative;
-        margin-top: -50%;
-        margin-left: 5%;
-      }
-      #meter div {
-        background-color: mediumblue;
-        position: absolute;
-        bottom: 0;
-        height: 20%;
         width: 100%;
-        transition: height .5s ease-in;
       }
-      .meter-happy #meter div {
-        height: 90%;
-      }
-      .meter-happy:after {
-        background-color: #fff;
-        border-radius: 3rem;
-        content: 'GrowHappy';
-        display: block;
-        color: mediumblue;
-        padding: .5rem .75rem;
-        position: relative;
-        margin: 0 auto;
-        margin-top: -15%;
-        width: 5rem;
-      }
-      .canvas-wrapper {
-        position: relative;
-      }
-      @media (max-width: 400px) {
-        .canvas {
-          width: 100%;
-        }
-      }
-    </style>
-    <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
-    <link rel="icon" href="favicon.ico" type="image/icon" />
-  </head>
-  <body onload="main()">
-    <div class="container">
-      <h1 style="display: none;">AI Expression Emoticon</h1>
-      <div id="canvas-wrap" class="canvas-wrapper">
-        <canvas id="canvas" class="canvas" width="320" height="600"></canvas>
-        <!-- <div id="displacement"></div> -->
-        <div id="meter">
-          <div id="meter-value"></div>
-        </div>
-      </div>
+    }
 
-      <!-- <div id="emotion">
-        <div id="emotion-fear">
-          <img src="assets/icons/fear.png" alt="" />
-        </div>
-        <div id="emotion-happy">
-          <img src="assets/icons/happy.png" height="45" width="45" alt="Happy" />
-        </div>
-        <div id="emotion-sad">
-          <img src="assets/icons/sad.png" height="45" width="45" alt="Sad" />
-        </div>
-        <div id="emotion-anger">
-          <img src="assets/icons/angry.png" height="45" width="45" alt="Angry" />
-        </div>
-        <div id="emotion-surprise">
-          <img src="assets/icons/surprise.png" height="100" width="100" alt="Surprise" />
-        </div>
-      </div> -->
+    .btn {
+      display: inline-block;
+      background-color: mediumblue;
+      border: 0;
+      border-radius: 3rem;
+      color: white;
+      margin: 1rem auto;
+      padding: .3rem 1.5rem;
+      font-size: 1rem;
+    }
+
+
+
+    #aiphoto {
+      margin-top: -.5rem;
+      background: #ddd;
+      min-height: 15rem;
+      width: 100%;
+      line-height: 0;
+    }
+  </style>
+  <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
+  <link rel="icon" href="favicon.ico" type="image/icon" />
+</head>
+
+<body onload="main()">
+  <div class="container">
+    <h1 style="display: none;">AI Expression Emoticon</h1>
+    <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
+      <canvas id="canvas" class="canvas" width="320" height="600"></canvas>
+      <div id="meter">
+        <div id="meter-value"></div>
+      </div>
     </div>
-    <script src="src/js/jeelizFaceTransfer.js"></script>
-    <script src="src/js/emotion.js"></script>
-    <script src="src/js/main.js"></script>
-  </body>
+    <div id="aicam" style="display: none;"></div>
+    <div id="aiphoto"></div> 
+    <form style="text-align: center;">
+      <input class="btn" type=button value="Take Snapshot" onClick="take_snapshot()">
+    </form>
+  </div>
+  <script src="src/js/jeelizFaceTransfer.js"></script>
+  <script src="src/js/emotion.js"></script>
+  <script src="src/js/webcam.min.js"></script>
+  <script>
+    Webcam.set({
+      width: 320,
+      height: 240,
+      image_format: 'jpeg',
+      jpeg_quality: 90
+    });
+    Webcam.attach('#aicam');
+
+    // snapshot effect
+    // preload shutter audio clip
+    var shutter = new Audio();
+    shutter.autoplay = false;
+    shutter.src = navigator.userAgent.match(/Firefox/) ? 'assets/audio/shutter.ogg' : 'assets/audio/shutter.mp3';
+
+    function take_snapshot() {
+      // play sound effect
+      shutter.play();
+
+      // take snapshot and get image data
+      Webcam.snap(function (data_uri) {
+        // display aiphoto in page
+        document.getElementById('aiphoto').innerHTML =
+          '<img src="' + data_uri + '"/>';
+      });
+    }
+  </script>
+  <script src="src/js/main.js"></script>
+</body>
+
 </html>
