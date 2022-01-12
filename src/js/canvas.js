@@ -185,7 +185,7 @@ function init_scene(spec){
   CTX.strokeStyle = SETTINGS.strokeStyle;
   CTX.lineWidth = 4;
   const frameImage = new Image()
-  frameImage.src = 'assets/images/ai-frame.png';
+  frameImage.src = 'assets/images/aiframe.png';
   frameImage.onload = function(){
     CTX.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height, 0, 0, CANVAS2D.width, CANVAS2D.height);
     update_canvasTexture();
