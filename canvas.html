@@ -21,7 +21,6 @@
       margin-top: 1rem;
       max-width: 320px;
       margin: 0 auto;
-      position: relative;
     }
     @media (max-width: 600px) {
       .container {
@@ -107,13 +106,11 @@
       font-size: 1rem;
     }
     #aiphoto {
+      margin-top: -.5rem;
       background: #ddd;
       min-height: 15rem;
       width: 100%;
       line-height: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
     }
     .airesult {
       height: auto;
@@ -134,9 +131,7 @@
       </div>
     </div>
     <div id="aicam" style="display: none;"></div>
-    <div id="aiphoto">
-      <img src="" class="airesult" alt="">
-    </div> 
+    <div id="aiphoto"></div> 
     <form style="text-align: center;">
       <input class="btn" type=button value="Take Snapshot" onClick="take_snapshot()">
     </form>
@@ -144,22 +139,36 @@
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
   <script src="src/js/emotion.js"></script>
+  <script src="src/js/webcam.min.js"></script>
+  <script>
+    Webcam.set({
+      width: 320,
+      height: 320,
+      image_format: 'jpeg',
+      jpeg_quality: 90
+    });
+    Webcam.attach('#aicam');
+
+    // snapshot effect
+    // preload shutter audio clip
+    var shutter = new Audio();
+    shutter.autoplay = false;
+    shutter.src = navigator.userAgent.match(/Firefox/) ? 'assets/audio/shutter.ogg' : 'assets/audio/shutter.mp3';
+
+    function take_snapshot() {
+      // play sound effect
+      shutter.play();
+
+      // take snapshot and get image data
+      Webcam.snap(function (data_uri) {
+        // display aiphoto in page
+        document.getElementById('aiphoto').innerHTML =
+          '<img class="airesult" src="' + data_uri + '"/>';
+      });
+    }
+  </script>
   <script src="src/js/main.js"></script>
   <script src="src/js/canvas.js"></script>
-  <script>
-    function take_snapshot() {
-        window.scrollTo(0, 0);
-        html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
-            var generatedImage = canvas.toDataURL("image/jpeg", 0.9);
-            $(".airesult").attr("src",generatedImage)
-            var win = window.open();
-            win.document.write('<iframe src="' + generatedImage  + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>');
-            return win;
-        });
-    }
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="src/js/html2canvas.js" ></script>
 </body>
 
 </html>
