@@ -38,14 +38,13 @@
       border: 2px solid yellow;
       background-color: #fff;
       border-radius: 3rem;
-      float: left;
       height: 5.5rem;
       width: .75rem;
       overflow: hidden;
       position: absolute;
-      top: 1rem;
-      left: .5rem;
-      margin-left: 5%;
+      top: 3rem;
+      right: .5rem;
+      margin-right: 3rem;
     }
 
     #meter div {
@@ -73,14 +72,13 @@
       content: 'Happy';
       display: block;
       color: mediumblue;
-      padding: .5rem .75rem;
+      padding: .75rem;
       text-align: center;
       position: absolute;
-      top: 70%;
-      left: auto;
-      right: auto;
+      top: 9rem;
+      right: .5rem;
       margin: 0 auto;
-      width: 7rem;
+      width: 6rem;
     }
 
     .meter-superhappy:after {
@@ -95,7 +93,11 @@
       position: relative;
       line-height: 0;
     }
-
+    .form-action {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
     .btn {
       display: inline-block;
       background-color: mediumblue;
@@ -106,15 +108,11 @@
       padding: .3rem 1.5rem;
       font-size: 1rem;
     }
-    #aiphoto {
-      min-height: 320px;
-      width: 100%;
+    .airesult {
       line-height: 0;
       position: absolute;
       top: 0;
       left: 0;
-    }
-    .airesult {
       border: 0;
       height: auto;
       width: 100%;
@@ -124,33 +122,46 @@
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
-<body onload="main()">
+<body onload="canvas();main()">
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
     <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
-      <canvas id="canvas" class="canvas" width="320" height="320"></canvas>
+      <canvas id="canvas" class="canvas" width="320" height="320" style="display: none;"></canvas>
+      <canvas id="canvas2" class="canvas" width="320" height="320"></canvas>
+      <div id="displacement"></div>
       <div id="meter">
         <div id="meter-value"></div>
       </div>
     </div>
-    <div id="aiphoto">
+    <div class="result-wrap">
       <img src="" class="airesult" alt="">
-    </div> 
-    <form style="text-align: center;">
-      <input class="btn" type=button value="Take Snapshot" onClick="take_snapshot()">
-    </form>
+      <form class="form-action">
+        <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
+        <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
+      </form>
+    </div>
   </div>
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
   <script src="src/js/emotion.js"></script>
   <script src="src/js/main.js"></script>
-  <script src="src/js/canvas-helper.js"></script>
+  <script src="src/js/canvas.js"></script>
   <script>
+    function cancel_snapshot() {
+        window.scrollTo(0, 0);
+        html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
+            $(".airesult").attr("src","");
+            $(".btn-cancel").hide();
+            $(".btn-save").show();
+        });
+    }
     function take_snapshot() {
         window.scrollTo(0, 0);
         html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
             var generatedImage = canvas.toDataURL("image/jpeg", 0.9);
             $(".airesult").attr("src",generatedImage);
+            $(".btn-cancel").show();
+            $(".btn-save").hide();
         });
     }
 </script>

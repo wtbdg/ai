@@ -366,9 +366,9 @@ function update_canvasTexture(){
 }
 
 // entry point - launched by body.onload():
-function init(){
+function canvas(){
   JEELIZFACEFILTER.init({
-    canvasId: 'canvas',
+    canvasId: 'canvas2',
     NNCPath: 'src/model/', // root of NN_DEFAULT.json file
     callbackReady: function(errCode, spec){
       if (errCode){
