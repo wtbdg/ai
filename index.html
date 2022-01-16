@@ -23,6 +23,7 @@
       margin: 0 auto;
       position: relative;
     }
+
     @media (max-width: 600px) {
       .container {
         max-width: 100%;
@@ -59,14 +60,18 @@
     .meter-happy #meter div {
       height: 30%;
     }
+
     .meter-superhappy #meter div {
       height: 50%;
     }
+
     .meter-growhappy #meter div {
       height: 100%;
     }
 
-    .meter-happy:after, .meter-superhappy:after, .meter-growhappy:after {
+    .meter-happy:after,
+    .meter-superhappy:after,
+    .meter-growhappy:after {
       background-color: #fff;
       border-radius: 3rem;
       content: 'Happy';
@@ -93,21 +98,25 @@
       position: relative;
       line-height: 0;
     }
+
     .form-action {
       text-align: center;
       position: relative;
       z-index: 1;
     }
+
     .btn {
+      cursor: pointer;
       display: inline-block;
       background-color: mediumblue;
       border: 0;
       border-radius: 3rem;
       color: white;
       margin: 1rem auto;
-      padding: .3rem 1.5rem;
+      padding: .8rem 1.5rem;
       font-size: 1rem;
     }
+
     .airesult {
       line-height: 0;
       position: absolute;
@@ -146,27 +155,26 @@
   <script src="src/js/emotion.js"></script>
   <script src="src/js/main.js"></script>
   <script src="src/js/canvas.js"></script>
+  <script src="src/js/jquery-3.6.0.slim.min.js"></script>
+  <script src="src/js/html2canvas.js"></script>
   <script>
     function cancel_snapshot() {
-        window.scrollTo(0, 0);
-        html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
-            $(".airesult").attr("src","");
-            $(".btn-cancel").hide();
-            $(".btn-save").show();
-        });
+      window.scrollTo(0, 0);
+      html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
+        $(".airesult").attr("src", "");
+        $(".btn-cancel").hide();
+        $(".btn-save").show();
+      });
     }
     function take_snapshot() {
-        window.scrollTo(0, 0);
-        html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
-            var generatedImage = canvas.toDataURL("image/jpeg", 0.9);
-            $(".airesult").attr("src",generatedImage);
-            $(".btn-cancel").show();
-            $(".btn-save").hide();
-        });
+      window.scrollTo(0, 0);
+      html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
+        var generatedImage = canvas.toDataURL("image/jpeg", 0.9);
+        $(".airesult").attr("src", generatedImage);
+        $(".btn-cancel").show();
+        $(".btn-save").hide();
+      });
     }
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="src/js/html2canvas.js" ></script>
+  </script>
 </body>
-
 </html>
