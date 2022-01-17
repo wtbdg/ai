@@ -293,8 +293,10 @@ function start() {
     canvasId: 'canvas2',
     NNCPath: 'src/model/', // root of NN_DEFAULT.json file
     animateDelay: 2,
+    maxFacesDetected: 2,
     videoSettings: {
-      facingMode: 'environment'
+      facingMode: 'environment',
+      'flipX': true
     },
     callbackReady: function (errCode, spec) {
       if (errCode) {
