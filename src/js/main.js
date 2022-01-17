@@ -11,6 +11,7 @@ function main() {
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
     NNCpath: "src/model/",
+    animateDelay: 2,
     callbackReady: function(errCode) {
       if (errCode) {
         console.log(
