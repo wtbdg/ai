@@ -98,6 +98,26 @@
       content: 'GrowHappy';
     }
 
+    .displacement {
+      position: absolute;
+      bottom: 10rem;
+      left: 5rem;
+      background: url(assets/images/status-happy.png) center no-repeat;
+      height: 10rem;
+      width: 10rem;
+      z-index: 1;
+    }
+
+    .meter-superhappy>.displacement, .meter-growhappy>.displacement {
+      left: auto;
+      right: 5rem;
+      background-image: url(assets/images/status-superhappy.png);
+    }
+
+    .meter-growhappy>.displacement {
+      background-image: url(assets/images/status-growhappy.png);
+    }
+
     .form-action {
       text-align: center;
       position: absolute;
@@ -139,7 +159,7 @@
     <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
       <canvas id="canvas" class="canvas" width="320" height="320" style="display: none;"></canvas>
       <canvas id="canvas2" class="canvas" width="320" height="320"></canvas>
-      <div id="displacement"></div>
+      <div id="displacement" class="displacement"></div>
       <div id="meter">
         <div id="meter-value"></div>
       </div>
