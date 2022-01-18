@@ -47,25 +47,31 @@ function nextFrame() {
     if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
       var meter = document.getElementById("canvas-wrap");
-      if (emotions.happy <= 0.2) {
+      if (emotions.happy <= 0.25) {
         meter.classList.remove("meter-growhappy");
         meter.classList.remove("meter-superhappy");
         meter.classList.remove("meter-happy");
       };
-      if (emotions.happy >= 0.28) {
+      if (emotions.happy >= 0.3) {
         meter.classList.remove("meter-growhappy");
         meter.classList.remove("meter-superhappy");
         meter.classList.add("meter-happy");
       };
-      if (emotions.happy >= 0.3) {
+      if (emotions.happy >= 0.35) {
         meter.classList.remove("meter-growhappy");
         meter.classList.remove("meter-happy");
         meter.classList.add("meter-superhappy");
       };
-      if (emotions.happy >= 0.35) {
+      if (emotions.happy >= 0.38) {
         meter.classList.remove("meter-superhappy");
         meter.classList.remove("meter-happy");
         meter.classList.add("meter-growhappy");
+      };
+
+      if (emotions.happy < 0.24) {
+        meter.classList.remove("meter-growhappy");
+        meter.classList.remove("meter-superhappy");
+        meter.classList.remove("meter-happy");
       };
       
       document.getElementById("canvas-wrap").dataset.state = emotions.happy;
@@ -79,10 +85,10 @@ function nextFrame() {
     //**************************************************************************** */
 
     // The API is detected
-    console.log("Detected");
+    // console.log("Detected");
   } else {
     // Tell the user that detection is off.
-    console.log("Not Detected");
+    // console.log("Not Detected");
   }
   // Replay frame
   requestAnimationFrame(nextFrame);
