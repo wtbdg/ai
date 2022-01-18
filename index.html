@@ -8,7 +8,7 @@
   <title>AI Expression Meter</title>
   <style>
     body {
-      background-color: midnightblue;
+      background-color: mediumblue;
       margin: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       height: 100vh;
@@ -149,6 +149,15 @@
       font-size: 1rem;
     }
 
+    .result-wrap {
+      height: 100vh;
+    }
+
+    .ai-wrap {
+      background-color: mediumblue;
+      height: 100%;
+    }
+
     .airesult {
       line-height: 0;
       position: absolute;
@@ -200,7 +209,7 @@
       </div> -->
     </div>
     <div class="result-wrap">
-      <img src="" class="airesult" alt="" style="display: none;">
+      <div class="ai-wrap"><img src="" class="airesult" alt="" style="display: none;"></div>
       <form class="form-action">
         <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
         <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
