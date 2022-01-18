@@ -1,9 +1,9 @@
-# AI Expression Emoticon
+# AI Happy Meter
 
-Emoticon based on your expression in a camera and metered happyness value.
+Happy Meter based on your expression in a camera.
 
 ## Todo
 
 - [x] Smoother transition
-- [ ] Take picture on smile
+- [x] Take picture on smile
 - [ ] Save and share picture
