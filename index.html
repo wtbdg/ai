@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
   <style>
@@ -21,6 +21,9 @@
       z-index: 1;
     }
 
+    .container {
+      display: none;
+    }
     .container,
     .canvas-wrapper {
       position: relative;
@@ -154,6 +157,20 @@
       height: auto;
       width: 100%;
     }
+    .notice {
+      color: #fff;
+      display: grid;
+      place-items: center;
+      height: 100vh;
+    }
+    @media (max-width: 560px) {
+      .container {
+        display: block;
+      }
+      .notice {
+        display: none;
+      }
+    }
   </style>
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
@@ -177,6 +194,9 @@
         <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
       </form>
     </div>
+  </div>
+  <div class="notice">
+    <h3>Gunakan Handphone untuk mencoba Happy Meter</h3>
   </div>
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
