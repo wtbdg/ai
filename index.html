@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
   <style>
@@ -148,23 +148,13 @@
       padding: .8rem 1.5rem;
       font-size: 1rem;
     }
-
-    .result-wrap {
-      height: 100vh;
-    }
-
-    .ai-wrap {
-      background-color: mediumblue;
-      height: 100%;
-    }
-
     .airesult {
       line-height: 0;
       position: absolute;
       top: 0;
       left: 0;
       border: 0;
-      height: auto;
+      height: 100%;
       width: 100%;
     }
     .notice-desktop, .notice-landscape {
@@ -209,7 +199,7 @@
       </div> -->
     </div>
     <div class="result-wrap">
-      <div class="ai-wrap"><img src="" class="airesult" alt="" style="display: none;"></div>
+      <img src="" class="airesult" alt="" style="display: none;">
       <form class="form-action">
         <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
         <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
@@ -222,13 +212,13 @@
   <div class="notice-landscape">
     <h3>Posisikan Handphone ke portrait untuk mencoba Happy Meter</h3>
   </div>
+  <script src="src/js/jquery-3.6.0.slim.min.js"></script>
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
   <script src="src/js/emotion.js"></script>
   <script src="src/js/main.js?v=1.0.2"></script>
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/canvas.js?v=1.0.2"></script>
-  <script src="src/js/jquery-3.6.0.slim.min.js"></script>
   <script src="src/js/html2canvas.js"></script>
   <script>
     window.scrollTo(0,document.body.scrollHeight);

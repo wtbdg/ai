@@ -289,6 +289,7 @@ function canvas() {
 };
 
 function start() {
+  $(".btn-save").prop('value', 'Loading...');
   JEELIZFACEFILTER.init({
     canvasId: 'canvas2',
     NNCPath: 'src/model/', // root of NN_DEFAULT.json file
@@ -302,6 +303,7 @@ function start() {
 
       console.log('INFO: JEELIZFACEFILTER IS READY');
       init_scene(spec);
+      $(".btn-save").prop('value', 'Save Expression');
     }, //end callbackReady()
 
     // called at each render iteration (drawing loop):
