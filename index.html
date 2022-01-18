@@ -235,7 +235,7 @@
     function take_snapshot() {
       window.scrollTo(0,document.body.scrollHeight);
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
-        var generatedImage = canvas.toDataURL("image/jpeg", 0.9);
+        var generatedImage = canvas.toDataURL("image/jpeg", 1.0);
         $(".airesult").show().attr("src", generatedImage).css("z-index", "2");
         $(".btn-cancel").show();
         $(".btn-save").hide();
