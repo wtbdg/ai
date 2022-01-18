@@ -157,7 +157,7 @@
       height: auto;
       width: 100%;
     }
-    .notice-desktop {
+    .notice-desktop, .notice-landscape {
       color: #fff;
       display: grid;
       place-items: center;
@@ -175,6 +175,9 @@
       }
     }
     @media (orientation: landscape) {
+      .notice-desktop {
+        display: none;
+      }
       .notice-landscape {
         display: block;
       }
