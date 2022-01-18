@@ -222,9 +222,11 @@
   <script src="src/js/jquery-3.6.0.slim.min.js"></script>
   <script src="src/js/html2canvas.js"></script>
   <script>
+    window.scrollTo(0,document.body.scrollHeight);
     $(".airesult").hide();
     function cancel_snapshot() {
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
+        $(this).show();
         $(".airesult").hide().attr("src", "").css("z-index", "0");
         $(".btn-cancel").hide();
         $(".btn-save").show();
@@ -233,6 +235,7 @@
     function take_snapshot() {
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         var generatedImage = canvas.toDataURL("image/jpeg", 1.0);
+        $(this).hide();
         $(".airesult").show().attr("src", generatedImage).css("z-index", "2");
         $(".btn-cancel").show();
         $(".btn-save").hide();
