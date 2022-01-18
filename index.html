@@ -107,8 +107,13 @@
       height: 10rem;
       width: 10rem;
       z-index: 1;
+      opacity: 0;
+      transition: opacity .5s ease-in;
     }
 
+    .meter-happy>.displacement, .meter-superhappy>.displacement, .meter-growhappy>.displacement {
+      opacity: 1;
+    }
     .meter-superhappy>.displacement, .meter-growhappy>.displacement {
       left: auto;
       right: 3rem;
@@ -157,7 +162,7 @@
 <body onload="main();canvas()">
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
-    <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
+    <div id="canvas-wrap" class="canvas-wrapper" data-state="">
       <canvas id="canvas" class="canvas" width="320" height="320" style="display: none;"></canvas>
       <canvas id="canvas2" class="canvas" width="320" height="320"></canvas>
       <div id="displacement" class="displacement"></div>
