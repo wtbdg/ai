@@ -11,10 +11,10 @@ function expression() {
   JEELIZFACEEXPRESSIONS.init({
     canvasId: "canvas",
     NNCpath: "src/model/",
-    // videoSettings: {
-      // facingMode: 'environment'
-      // 'flipX': true
-    // },
+    videoSettings: {
+      facingMode: 'user',
+      isAudio: false
+    },
     callbackReady: function(errCode) {
       if (errCode) {
         console.log(

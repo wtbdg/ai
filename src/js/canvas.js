@@ -297,8 +297,8 @@ function start() {
     // animateDelay: 2,
     // maxFacesDetected: 2,
     videoSettings: {
-      facingMode: 'environment'
-      // 'flipX': true
+      facingMode: 'user',
+      isAudio: false
     },
     callbackReady: function (errCode, spec) {
       if (errCode) {
