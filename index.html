@@ -107,12 +107,12 @@
       bottom: 30%;
       left: 3rem;
       background: url(assets/images/status-happy.png) center no-repeat;
-      background-size: 50%;
+      background-size: 80%;
       height: 10rem;
       width: 10rem;
       z-index: 2;
       opacity: 0;
-      transition: opacity .5s ease-in;
+      transition: opacity .25s ease-in-out;
     }
 
     .meter-happy>.displacement, .meter-superhappy>.displacement, .meter-growhappy>.displacement {
@@ -187,11 +187,11 @@
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
-<body onload="main();canvas()">
+<body onload="canvas();expression()">
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
     <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
-      <canvas id="canvas" class="canvas" width="360" height="640" style="display: none;"></canvas>
+      <canvas id="canvas" class="canvas" width="360" height="640" style="display:none;"></canvas>
       <canvas id="canvas2" class="canvas" width="360" height="640"></canvas>
       <div id="displacement" class="displacement"></div>
       <!-- <div id="meter">
@@ -214,11 +214,12 @@
   </div>
   <script src="src/js/jquery-3.6.0.slim.min.js"></script>
   <script src="src/js/jeelizFaceFilter.js"></script>
-  <script src="src/js/jeelizFaceTransfer.js"></script>
+  <!-- <script src="src/js/jeelizFaceTransfer.js"></script> -->
+  <script src="src/js/jeelizFaceExpressions.js"></script>
   <script src="src/js/emotion.js"></script>
-  <script src="src/js/main.js?v=1.0.3"></script>
+  <script src="src/js/expression.js?v=1.0.4"></script>
   <script src="src/js/JeelizResizer.js"></script>
-  <script src="src/js/canvas.js?v=1.0.3"></script>
+  <script src="src/js/canvas.js?v=1.0.4"></script>
   <script src="src/js/html2canvas.js"></script>
   <script>
     window.scrollTo(0,document.body.scrollHeight);

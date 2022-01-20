@@ -19,9 +19,9 @@ const SETTINGS = {
   pivotOffsetYZ: [0.2, 0.2], // XYZ of the distance between the center of the cube and the pivot
   detectionThreshold: 0.75, // sensibility, between 0 and 1. Less -> more sensitive
   detectionHysteresis: 0.05,
-  scale: [1.5, 1.75], // scale of the 2D canvas along horizontal and vertical 2D axis
+  scale: [1.0, 1.5], // scale of the 2D canvas along horizontal and vertical 2D axis
   offsetYZ: [-0.1, -0.2], // offset of the 2D canvas along vertical and depth 3D axis
-  canvasSizePx: 512 // resolution of the 2D canvas in pixels
+  canvasSizePx: 1280 // resolution of the 2D canvas in pixels
 };
 
 // some globalz:
@@ -270,6 +270,7 @@ function init_scene(spec) {
   GL.uniform1i(uSampler, 0);
   GL.disableVertexAttribArray(shpCanvas, SHADERCANVAS.position);
   GL.disableVertexAttribArray(shpCanvas, SHADERCANVAS.uv);
+  requestAnimationFrame(update_canvasTexture);
 } //end init_scene()
 
 
