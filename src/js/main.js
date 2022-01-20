@@ -11,6 +11,10 @@ function main() {
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
     NNCpath: "src/model/",
+    videoSettings: {
+      facingMode: 'environment'
+      // 'flipX': true
+    },
     callbackReady: function(errCode) {
       if (errCode) {
         console.log(

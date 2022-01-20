@@ -295,6 +295,10 @@ function start() {
     NNCPath: 'src/model/', // root of NN_DEFAULT.json file
     // animateDelay: 2,
     // maxFacesDetected: 2,
+    videoSettings: {
+      facingMode: 'environment'
+      // 'flipX': true
+    },
     callbackReady: function (errCode, spec) {
       if (errCode) {
         console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
