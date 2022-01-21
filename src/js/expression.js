@@ -48,7 +48,7 @@ function nextFrame() {
     // Do something awesome with animation values
     expressions = JEELIZFACEEXPRESSIONS.get_morphTargetInfluences();
     getMeanDisplacement(rotation);
-    // if (displacement > DISPLACEMENT_THRESHOLD) {
+    if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
       var meter = document.getElementById("canvas-wrap");
       if (emotions.happy <= 0.02) {
@@ -78,7 +78,7 @@ function nextFrame() {
       // document.getElementById("emotion-happy").style.opacity = emotions.happy;
       // document.getElementById("emotion-fear").style.opacity = emotions.fear;
       // document.getElementById("emotion-sad").style.opacity = emotions.sad;
-    // }
+    }
 
     //**************************************************************************** */
 
