@@ -203,6 +203,7 @@
       <form class="form-action">
         <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
         <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
+        <a href="" class="btn btn-download" style="display: none; text-decoration: none;">Save Result</a>
       </form>
     </div>
   </div>
@@ -229,7 +230,7 @@
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         $(this).show();
         $(".airesult").hide().attr("src", "").css("z-index", "0");
-        $(".btn-cancel").hide();
+        $(".btn-cancel,.btn-download").hide();
         $(".btn-save").show();
       });
     }
@@ -238,8 +239,9 @@
         var generatedImage = canvas.toDataURL("image/jpeg", 1.0);
         $(this).hide();
         $(".airesult").show().attr("src", generatedImage).css("z-index", "2");
-        $(".btn-cancel").show();
+        $(".btn-cancel,.btn-download").show();
         $(".btn-save").hide();
+        $(".btn-download").attr("href", generatedImage).attr("download", "happyresult.jpeg")
       });
     }
   </script>
