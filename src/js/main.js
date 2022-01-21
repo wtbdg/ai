@@ -12,8 +12,8 @@ function main() {
     canvasId: "canvas",
     NNCpath: "src/model/",
     videoSettings: {
-      facingMode: 'environment'
-      // 'flipX': true
+      facingMode: 'user',
+      isAudio: false
     },
     callbackReady: function(errCode) {
       if (errCode) {
@@ -51,31 +51,25 @@ function nextFrame() {
     if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
       var meter = document.getElementById("canvas-wrap");
-      if (emotions.happy <= 0.25) {
+      if (emotions.happy <= 0.02) {
         meter.classList.remove("meter-growhappy");
         meter.classList.remove("meter-superhappy");
         meter.classList.remove("meter-happy");
       };
-      if (emotions.happy >= 0.3) {
+      if (emotions.happy >= 0.05) {
         meter.classList.remove("meter-growhappy");
         meter.classList.remove("meter-superhappy");
         meter.classList.add("meter-happy");
       };
-      if (emotions.happy >= 0.35) {
+      if (emotions.happy >= 0.12) {
         meter.classList.remove("meter-growhappy");
         meter.classList.remove("meter-happy");
         meter.classList.add("meter-superhappy");
       };
-      if (emotions.happy >= 0.38) {
+      if (emotions.happy >= 0.2) {
         meter.classList.remove("meter-superhappy");
         meter.classList.remove("meter-happy");
         meter.classList.add("meter-growhappy");
-      };
-
-      if (emotions.happy < 0.24) {
-        meter.classList.remove("meter-growhappy");
-        meter.classList.remove("meter-superhappy");
-        meter.classList.remove("meter-happy");
       };
       
       document.getElementById("canvas-wrap").dataset.state = emotions.happy;
