@@ -90,6 +90,7 @@ function nextFrame() {
   }
   // Replay frame
   requestAnimationFrame(nextFrame);
+  return window.JEEFACETRANSFERAPI();
 }
 
 function getMeanDisplacement(rotation) {
