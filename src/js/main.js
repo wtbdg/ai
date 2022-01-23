@@ -1,6 +1,6 @@
 "use strict";
 
-const DISPLACEMENT_THRESHOLD = 2.8;
+const DISPLACEMENT_THRESHOLD = 0.1;
 
 let emotions = {};
 let expressions = [];
