@@ -270,7 +270,6 @@ function init_scene(spec) {
   GL.uniform1i(uSampler, 0);
   GL.disableVertexAttribArray(shpCanvas, SHADERCANVAS.position);
   GL.disableVertexAttribArray(shpCanvas, SHADERCANVAS.uv);
-  requestAnimationFrame(update_canvasTexture);
 } //end init_scene()
 
 
