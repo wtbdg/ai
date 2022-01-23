@@ -48,7 +48,7 @@ function nextFrame() {
     // Do something awesome with animation values
     expressions = JEEFACETRANSFERAPI.get_morphTargetInfluences();
     getMeanDisplacement(rotation);
-    if (DISPLACEMENT_THRESHOLD) {
+    if (displacement > DISPLACEMENT_THRESHOLD) {
       let emotions = get_emotions();
       var meter = document.getElementById("canvas-wrap");
       if (emotions.happy <= 0.02) {
