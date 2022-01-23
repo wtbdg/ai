@@ -14,7 +14,7 @@ at the next rendering.
 // SETTINGS of this demo:
 const SETTINGS = {
   strokeStyle: 'red',
-  rotationOffsetX: 0, // negative -> look upper. in radians
+  rotationOffsetX: 5, // negative -> look upper. in radians
   cameraFOV: 60,    // in degrees, 3D camera FOV
   pivotOffsetYZ: [0.2, 0.2], // XYZ of the distance between the center of the cube and the pivot
   detectionThreshold: 0.75, // sensibility, between 0 and 1. Less -> more sensitive
