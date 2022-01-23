@@ -11,10 +11,10 @@ function main() {
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
     NNCpath: "src/model/",
-    videoSettings: {
-      facingMode: 'user',
-      isAudio: false
-    },
+    // videoSettings: {
+    //   facingMode: 'user',
+    //   isAudio: false
+    // },
     callbackReady: function(errCode) {
       if (errCode) {
         console.log(
@@ -90,7 +90,7 @@ function nextFrame() {
   }
   // Replay frame
   requestAnimationFrame(nextFrame);
-  return window.JEEFACETRANSFERAPI();
+  // return window.JEEFACETRANSFERAPI();
 }
 
 function getMeanDisplacement(rotation) {
