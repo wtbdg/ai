@@ -72,7 +72,7 @@ function nextFrame() {
         meter.classList.add("meter-growhappy");
       };
       
-      document.getElementById("canvas-wrap").dataset.state = emotions.happy;
+      // document.getElementById("canvas-wrap").dataset.state = emotions.happy;
       // document.getElementById("emotion-anger").style.opacity = emotions.anger;
       // document.getElementById("emotion-surprise").style.opacity = emotions.surprise;
       // document.getElementById("emotion-happy").style.opacity = emotions.happy;
