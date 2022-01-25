@@ -276,7 +276,11 @@ function start_detect_ai() {
     canvasId: 'canvas2',
     isFullScreen: true,
     CSSFlipX: true,
-    callback: main
+    callback: function(isError, bestVideoSettings){
+      JEELIZFACEFILTER.init({
+        videoSettings: bestVideoSettings,
+      });
+    }
   });
 };
 function main() {
