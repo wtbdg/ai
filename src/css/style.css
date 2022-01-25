@@ -95,12 +95,12 @@ body {
 
   .displacement {
     position: absolute;
-    bottom: 30vh;
-    left: 3rem;
-    background: url(../../assets/images/status-happy.png) center no-repeat;
-    background-size: 80%;
-    height: 10rem;
-    width: 10rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url(../../assets/images/frame-happy.png) center no-repeat;
+    background-size: 100%;
     z-index: 2;
     opacity: 0;
     transition: opacity .25s ease-in-out;
@@ -110,13 +110,11 @@ body {
     opacity: 1;
   }
   .meter-superhappy>.displacement, .meter-growhappy>.displacement {
-    left: auto;
-    right: 3rem;
-    background-image: url(../../assets/images/status-superhappy.png);
+    background-image: url(../../assets/images/frame-superhappy.png);
   }
 
   .meter-growhappy>.displacement {
-    background-image: url(../../assets/images/status-growhappy.png);
+    background-image: url(../../assets/images/frame-growhappy.png);
   }
 
   .form-action {
