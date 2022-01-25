@@ -321,6 +321,7 @@ function main() {
       }
       console.log("INFO : JEELIZFACEFILTER is ready !!!");
       init_scene(spec);
+      $("#canvas").hide();
     }, //end callbackReady()
     // called at each render iteration (drawing loop):
     callbackTrack: function (detectState) {
