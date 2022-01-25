@@ -281,6 +281,28 @@ function start_detect_ai() {
 };
 function main() {
   $(".btn-save").prop('value', 'Loading...');
+  JEEFACETRANSFERAPI.init({
+    canvasId: "canvas",
+    NNCpath: "src/model/",
+    // videoSettings: {
+    //   facingMode: 'user',
+    //   isAudio: false
+    // },
+    callbackReady: function(errCode) {
+      if (errCode) {
+        console.log(
+          "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
+          errCode
+        );
+        errorCallback(errCode);
+        return;
+      }
+      console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
+      successCallback();
+      $(".btn-save").prop('value', 'Save Expression');
+    } //end callbackReady()
+  });
+
   JEELIZFACEFILTER.init({
     canvasId: "canvas2",
     NNCpath: "src/model/",
@@ -366,27 +388,6 @@ function main() {
         GL.disable(GL.BLEND);
       } //end if face detected
     } //end callbackTrack()
-  });
-  JEEFACETRANSFERAPI.init({
-    canvasId: "canvas",
-    NNCpath: "src/model/",
-    // videoSettings: {
-    //   facingMode: 'user',
-    //   isAudio: false
-    // },
-    callbackReady: function(errCode) {
-      if (errCode) {
-        console.log(
-          "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
-          errCode
-        );
-        errorCallback(errCode);
-        return;
-      }
-      console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
-      successCallback();
-      $(".btn-save").prop('value', 'Save Expression');
-    } //end callbackReady()
   });
 } //end main()
 
