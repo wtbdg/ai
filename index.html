@@ -11,13 +11,13 @@
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
-<body onload="main();canvas()">
+<body onload="start_detect_ai()">
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
     <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
       <div id="displacement" class="displacement"></div>
       <canvas id="canvas2" class="canvas" width="360" height="640"></canvas>
-      <canvas id="canvas" class="canvas" width="360" height="640" style="display:none;"></canvas>
+      <canvas id="canvas" class="canvas" width="360" height="640" style="opacity: 0;"></canvas>
     </div>
     <div class="result-wrap">
       <img src="" class="airesult" alt="" style="display: none;">
@@ -37,10 +37,10 @@
   <script src="src/js/jquery-3.6.0.slim.min.js"></script>
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
-  <script src="src/js/emotion.js"></script>
-  <script src="src/js/main.js?v=1.1.2"></script>
   <script src="src/js/JeelizResizer.js"></script>
-  <script src="src/js/canvas.js?v=1.1.7"></script>
+  <script src="src/js/emotion.js"></script>
+  <script src="src/js/main.js?v=1.1.3"></script>
+  <!-- <script src="src/js/canvas.js?v=1.1.7"></script> -->
   <script src="src/js/canvas-helper.js"></script>
   <script src="src/js/html2canvas.js" defer></script>
   <script>
