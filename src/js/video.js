@@ -281,35 +281,13 @@ function start_detect_ai() {
 };
 function main() {
   $(".btn-save").prop('value', 'Loading...');
-  JEEFACETRANSFERAPI.init({
-    canvasId: "canvas",
-    NNCpath: "src/model/",
-    // videoSettings: {
-    //   facingMode: 'user',
-    //   isAudio: false
-    // },
-    callbackReady: function(errCode) {
-      if (errCode) {
-        console.log(
-          "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
-          errCode
-        );
-        errorCallback(errCode);
-        return;
-      }
-      console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
-      successCallback();
-      $(".btn-save").prop('value', 'Save Expression');
-      $("#canvas").hide();
-    } //end callbackReady()
-  });
   JEELIZFACEFILTER.init({
     canvasId: "canvas2",
     NNCpath: "src/model/",
-    // videoSettings: {
-    //   facingMode: 'user',
-    //   isAudio: false
-    // },
+    videoSettings: {
+      facingMode: 'user',
+      isAudio: false
+    },
     callbackReady: function(errCode, spec) {
       if (errCode) {
         console.log(
@@ -321,6 +299,7 @@ function main() {
       }
       console.log("INFO : JEELIZFACEFILTER is ready !!!");
       init_scene(spec);
+      $("#canvas").hide();
     }, //end callbackReady()
     // called at each render iteration (drawing loop):
     callbackTrack: function (detectState) {
@@ -388,6 +367,27 @@ function main() {
         GL.disable(GL.BLEND);
       } //end if face detected
     } //end callbackTrack()
+  });
+  JEEFACETRANSFERAPI.init({
+    canvasId: "canvas",
+    NNCpath: "src/model/",
+    // videoSettings: {
+    //   facingMode: 'user',
+    //   isAudio: false
+    // },
+    callbackReady: function(errCode) {
+      if (errCode) {
+        console.log(
+          "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
+          errCode
+        );
+        errorCallback(errCode);
+        return;
+      }
+      console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
+      successCallback();
+      $(".btn-save").prop('value', 'Save Expression');
+    } //end callbackReady()
   });
 
 } //end main()
