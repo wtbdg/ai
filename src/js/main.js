@@ -273,7 +273,7 @@ function update_canvasTexture() {
 //entry point :
 function start_detect_ai() {
   JeelizResizer.size_canvas({
-    canvasId: 'canvas',
+    canvasId: 'canvas2',
     isFullScreen: true,
     CSSFlipX: true,
     callback: main
