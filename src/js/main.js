@@ -276,6 +276,7 @@ function start_detect_ai() {
     canvasId: 'canvas2',
     isFullScreen: true,
     CSSFlipX: true,
+    overSamplingFactor: 2,
     callback: function(isError, bestVideoSettings){
       JEELIZFACEFILTER.init({
         videoSettings: bestVideoSettings,
