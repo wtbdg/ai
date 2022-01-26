@@ -184,12 +184,12 @@ function init_scene(spec) {
   CTX = CANVAS2D.getContext('2d');
   CTX.strokeStyle = SETTINGS.strokeStyle;
   CTX.lineWidth = 4;
-  const frameImage = new Image()
-  frameImage.src = 'assets/images/aiframe-m.png';
-  frameImage.onload = function () {
-    CTX.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height, 0, 0, CANVAS2D.width, CANVAS2D.height);
-    update_canvasTexture();
-  }
+  // const frameImage = new Image()
+  // frameImage.src = 'assets/images/aiframe-m.png';
+  // frameImage.onload = function () {
+  //   CTX.drawImage(frameImage, 0, 0, frameImage.width, frameImage.height, 0, 0, CANVAS2D.width, CANVAS2D.height);
+  //   update_canvasTexture();
+  // }
 
   // create the WebGL texture with the canvas:
   CANVASTEXTURE = GL.createTexture();
@@ -289,16 +289,15 @@ function canvas() {
 };
 
 function start() {
-  $(".btn-save").prop('value', 'Loading...');
   JEELIZFACEFILTER.init({
     canvasId: 'canvas2',
     NNCPath: 'src/model/', // root of NN_DEFAULT.json file
     // animateDelay: 2,
     // maxFacesDetected: 2,
-    videoSettings: {
-      facingMode: 'user',
-      isAudio: false
-    },
+    // videoSettings: {
+    //   facingMode: 'user',
+    //   isAudio: false
+    // },
     callbackReady: function (errCode, spec) {
       if (errCode) {
         console.log('AN ERROR HAPPENS. SORRY BRO :( . ERR =', errCode);
@@ -307,6 +306,7 @@ function start() {
 
       console.log('INFO: JEELIZFACEFILTER IS READY');
       init_scene(spec);
+      successCallback();
       $(".btn-save").prop('value', 'Save Expression');
     }, //end callbackReady()
 

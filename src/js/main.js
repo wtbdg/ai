@@ -273,6 +273,17 @@ function update_canvasTexture() {
 //entry point :
 function start_detect_ai() {
   JeelizResizer.size_canvas({
+    canvasId: 'canvas',
+    isFullScreen: true,
+    CSSFlipX: true,
+    overSamplingFactor: 2,
+    callback: function(isError, bestVideoSettings){
+      JEELIZFACEFILTER.init({
+        videoSettings: bestVideoSettings,
+      });
+    }
+  });
+  JeelizResizer.size_canvas({
     canvasId: 'canvas2',
     isFullScreen: true,
     CSSFlipX: true,
@@ -286,28 +297,6 @@ function start_detect_ai() {
 };
 function main() {
   $(".btn-save").prop('value', 'Loading...');
-  JEEFACETRANSFERAPI.init({
-    canvasId: "canvas",
-    NNCpath: "src/model/",
-    // videoSettings: {
-    //   facingMode: 'user',
-    //   isAudio: false
-    // },
-    callbackReady: function(errCode) {
-      if (errCode) {
-        console.log(
-          "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
-          errCode
-        );
-        errorCallback(errCode);
-        return;
-      }
-      console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
-      successCallback();
-      $(".btn-save").prop('value', 'Save Expression');
-      $("#canvas").hide();
-    } //end callbackReady()
-  });
   JEELIZFACEFILTER.init({
     canvasId: "canvas2",
     NNCpath: "src/model/",
@@ -326,6 +315,8 @@ function main() {
       }
       console.log("INFO : JEELIZFACEFILTER is ready !!!");
       init_scene(spec);
+      $(".btn-save").prop('value', 'Save Expression');
+      $("#canvas").hide();
     }, //end callbackReady()
     // called at each render iteration (drawing loop):
     callbackTrack: function (detectState) {
@@ -394,7 +385,29 @@ function main() {
       } //end if face detected
     } //end callbackTrack()
   });
-
+  
+  JEEFACETRANSFERAPI.init({
+    canvasId: "canvas",
+    NNCpath: "src/model/",
+    // videoSettings: {
+    //   facingMode: 'user',
+    //   isAudio: false
+    // },
+    callbackReady: function(errCode) {
+      if (errCode) {
+        console.log(
+          "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
+          errCode
+        );
+        errorCallback(errCode);
+        return;
+      }
+      console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
+      successCallback();
+      $(".btn-save").prop('value', 'Save Expression');
+      $("#canvas").hide();
+    } //end callbackReady()
+  });
 } //end main()
 
 function successCallback() {

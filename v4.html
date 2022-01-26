@@ -6,18 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
-  <link rel="stylesheet" href="src/css/style.css?v=1.0.1">
+  <link rel="stylesheet" href="src/css/style.css?v=1.0.0">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
-<body onload="main()">
+<body onload="main();start()">
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
     <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
-      <canvas id="canvas" class="canvas" width="360" height="640"></canvas>
-      <canvas id="canvas2" class="canvas" width="360" height="640"></canvas>
       <div id="displacement" class="displacement"></div>
+      <canvas id="canvas2" class="canvas" width="360" height="640"></canvas>
+      <canvas id="canvas" class="canvas" width="360" height="640" style="display:none;"></canvas>
       <!-- <div id="meter">
         <div id="meter-value"></div>
       </div> -->
@@ -41,14 +41,13 @@
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
   <!-- <script src="src/js/jeelizFaceExpressions.js"></script> -->
-  <script src="src/js/JeelizResizer.js"></script>
-  <script src="src/js/canvas-helper.js"></script>
   <script src="src/js/emotion.js"></script>
-  <script src="src/js/emo.js?v=1.0.0"></script>
-  <!-- <script src="src/js/main.js?v=1.0.8"></script> -->
+  <script src="src/js/main.js?v=1.1.2"></script>
   <!-- <script src="src/js/expression.js?v=1.0.6"></script> -->
-  <script src="src/js/canvas.js?v=1.0.6"></script>
-  <script src="src/js/html2canvas.js"></script>
+  <script src="src/js/JeelizResizer.js"></script>
+  <script src="src/js/canvas.js?v=1.1.7"></script>
+  <script src="src/js/canvas-helper.js"></script>
+  <script src="src/js/html2canvas.js" defer></script>
   <script>
     window.scrollTo(0,document.body.scrollHeight);
     $(".airesult").hide();
