@@ -316,8 +316,6 @@ function main() {
       console.log("INFO : JEELIZFACEFILTER is ready !!!");
       init_scene(spec);
       $(".btn-save").prop('value', 'Save Expression');
-      $("#canvas").hide();
-      $("#canvas2").show();
     }, //end callbackReady()
     // called at each render iteration (drawing loop):
     callbackTrack: function (detectState) {
