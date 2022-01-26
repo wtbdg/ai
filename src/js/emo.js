@@ -27,8 +27,6 @@ function main() {
       }
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       canvas();
-      $("#canvas").hide();
-      $("#canvas2").show();
     } //end callbackReady()
   });
 } //end main()
