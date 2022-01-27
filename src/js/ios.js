@@ -42,7 +42,12 @@ function smile() {
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
       $(".btn-save").prop('value', 'Save Expression');
-    } //end callbackReady()
+    }, //end callbackReady()
+    callbackTrack: function() {
+      var c = document.getElementById("canvas");
+      var ctx = c.getContext("2d");
+      ctx.clear(0,0,0,0);
+    }
   });
 } //end main()
 
