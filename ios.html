@@ -41,7 +41,7 @@
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/emotion.js"></script>
   <script src="src/js/webrtc.js"></script>
-  <script src="src/js/ios.js"></script>
+  <script src="src/js/ios.js?v=1.0.0"></script>
   
   <script>
     const videoElm = document.querySelector('#video');
@@ -78,6 +78,7 @@
         videoElm.srcObject = stream;
         videoElm.play();
     }
+    capture('user');
 
     btnBack.addEventListener('click', () => {
         capture('environment');
@@ -86,7 +87,6 @@
     btnFront.addEventListener('click', () => {
         capture('user');
     });
-
   </script>
   <script src="src/js/html2canvas.js" defer></script>
   <script>
