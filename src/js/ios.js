@@ -10,10 +10,15 @@ let displacement = 9999;
 // entry point - launched by body.onload():
 function detect_smile() {
   JeelizResizer.size_canvas({
-    canvasId: 'video',
+    canvasId: 'canvas',
     isFullScreen: true,
-    CSSFlipX: true,
-    callback: smile
+    callback: function(isError, bestVideoSettings){
+      JEELIZFACEFILTER.init({
+        videoSettings: bestVideoSettings,
+        // ...
+        // ...
+      });
+    }
   });
 };
 function smile() {
