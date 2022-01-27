@@ -13,10 +13,12 @@ function detect_smile() {
   JeelizResizer.size_canvas({
     canvasId: 'canvas2',
     isFullScreen: true,
+    CSSFlipX: true,
+    overSamplingFactor: 2,
     callback: function(isError, bestVideoSettings){
       JEELIZFACEFILTER.init({
         canvasId: "canvas2",
-        // videoSettings: bestVideoSettings,
+        videoSettings: bestVideoSettings,
         callbackReady: function(errCode, spec) {
           if (errCode) {
             console.log(
