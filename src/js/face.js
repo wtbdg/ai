@@ -11,7 +11,7 @@ let displacement = 9999;
 function detect_smile() {
   let CVD = null; // return of Canvas2DDisplay
   JeelizResizer.size_canvas({
-    canvasId: 'canvas',
+    canvasId: 'canvas2',
     isFullScreen: true,
     callback: function(isError, bestVideoSettings){
       JEELIZFACEFILTER.init({
