@@ -16,7 +16,7 @@ function detect_smile() {
     callback: function(isError, bestVideoSettings){
       JEELIZFACEFILTER.init({
         canvasId: "canvas2",
-        videoSettings: bestVideoSettings,
+        // videoSettings: bestVideoSettings,
         callbackReady: function(errCode, spec) {
           if (errCode) {
             console.log(
@@ -34,9 +34,9 @@ function detect_smile() {
         callbackTrack: function(detectState){
           if (detectState.detected>0.6){
             // draw a border around the face:
-            const faceCoo = CVD.getCoordinates(detectState);
+            // const faceCoo = CVD.getCoordinates(detectState);
             CVD.ctx.clearRect(0,0,CVD.canvas.width, CVD.canvas.height);
-            CVD.ctx.strokeRect(faceCoo.x, faceCoo.y, faceCoo.w, faceCoo.h);
+            // CVD.ctx.strokeRect(faceCoo.x, faceCoo.y, faceCoo.w, faceCoo.h);
             CVD.update_canvasTexture();
           }
           CVD.draw();
