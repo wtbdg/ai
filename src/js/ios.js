@@ -7,7 +7,16 @@ let expressions = [];
 let displacement = 9999;
 
 //entry point :
+// entry point - launched by body.onload():
 function detect_smile() {
+  JeelizResizer.size_canvas({
+    canvasId: 'video',
+    isFullScreen: true,
+    CSSFlipX: true,
+    callback: smile
+  });
+};
+function smile() {
   $(".btn-save").prop('value', 'Loading...');
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",

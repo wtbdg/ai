@@ -140,6 +140,8 @@ body {
   .btn-cam {
     margin: 0;
     padding: .5rem .6rem;
+    position: relative;
+    top: .3rem;
   }
 
   .airesult {

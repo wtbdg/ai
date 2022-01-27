@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
-  <link rel="stylesheet" href="src/css/style.css?v=1.0.1">
+  <link rel="stylesheet" href="src/css/style.css?v=1.0.2">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
@@ -24,7 +24,7 @@
       <form class="form-action">
         <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
         <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
-        <button class="btn btn-cam" id="btn-front" style="display: none;"><img height="25" width="25" src="assets/images/icon-cam.png" alt="Camera"></button>
+        <button class="btn btn-cam" id="btn-front" style="display: none;"><img height="25" width="25" src="assets/images/icon-cam2.png" alt="Camera"></button>
         <button class="btn btn-cam" id="btn-back"><img height="25" width="25" src="assets/images/icon-cam.png" alt="Camera"></button>
         <a href="" class="btn btn-download" style="display: none; text-decoration: none;">Save Result</a>
       </form>
@@ -38,10 +38,11 @@
   </div>
   <script src="src/js/jquery-3.6.0.slim.min.js"></script>
   <script src="src/js/jeelizFaceTransfer.js"></script>
+  <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/emotion.js"></script>
   <script src="src/js/webrtc.js"></script>
-  <script src="src/js/ios.js?v=1.0.0"></script>
+  <script src="src/js/ios.js?v=1.0.1"></script>
   
   <script>
     const videoElm = document.querySelector('#video');
@@ -79,7 +80,6 @@
         videoElm.play();
     }
     capture('user');
-
     btnBack.addEventListener('click', () => {
         capture('environment');
     });
