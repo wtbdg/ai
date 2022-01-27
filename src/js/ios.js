@@ -28,6 +28,8 @@ function detect_smile() {
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
       $(".btn-save").prop('value', 'Save Expression');
+      // $("#btn-front").show();
+      $("#btn-front").click();
     } //end callbackReady()
   });
 } //end main()

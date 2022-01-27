@@ -17,12 +17,15 @@
     <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
       <div id="displacement" class="displacement"></div>
       <canvas id="canvas" class="canvas" width="100%" height="100%" style="display: none;"></canvas>
+      <video id="video" class="canvas" style="pointer-events: none;" controls autoplay playsInline></video>
     </div>
     <div class="result-wrap">
       <img src="" class="airesult" alt="" style="display: none;">
       <form class="form-action">
         <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
         <input class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
+        <button class="btn btn-cam" id="btn-front" style="display: none;"><img height="25" width="25" src="assets/images/icon-cam.png" alt="Camera"></button>
+        <button class="btn btn-cam" id="btn-back"><img height="25" width="25" src="assets/images/icon-cam.png" alt="Camera"></button>
         <a href="" class="btn btn-download" style="display: none; text-decoration: none;">Save Result</a>
       </form>
     </div>
@@ -37,7 +40,54 @@
   <script src="src/js/jeelizFaceTransfer.js"></script>
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/emotion.js"></script>
+  <script src="src/js/webrtc.js"></script>
   <script src="src/js/ios.js"></script>
+  
+  <script>
+    const videoElm = document.querySelector('#video');
+    const btnFront = document.querySelector('#btn-front');
+    const btnBack = document.querySelector('#btn-back');
+
+    const supports = navigator.mediaDevices.getSupportedConstraints();
+    // if (!supports['facingMode']) {
+    //     alert('Browser Not supported!');
+    //     return;
+    // }
+
+    let stream;
+
+    const capture = async facingMode => {
+        const options = {
+        audio: false,
+        video: {
+            facingMode,
+        },
+        };
+
+        try {
+        if (stream) {
+            const tracks = stream.getTracks();
+            tracks.forEach(track => track.stop());
+        }
+        stream = await navigator.mediaDevices.getUserMedia(options);
+        } catch (e) {
+        alert(e);
+        return;
+        }
+        videoElm.srcObject = null;
+        videoElm.srcObject = stream;
+        videoElm.play();
+    }
+
+    btnBack.addEventListener('click', () => {
+        capture('environment');
+    });
+
+    btnFront.addEventListener('click', () => {
+        capture('user');
+    });
+
+  </script>
   <script src="src/js/html2canvas.js" defer></script>
   <script>
     window.scrollTo(0,document.body.scrollHeight);
@@ -60,6 +110,11 @@
         $(".btn-download").attr("href", generatedImage).attr("download", "happyresult.jpeg")
       });
     }
+    $(".btn-cam,.btn-cancel").click(function(e) {
+        $("#btn-front").toggle();
+        $("#btn-back").toggle();
+        e.preventDefault();
+    });
   </script>
 </body>
 
