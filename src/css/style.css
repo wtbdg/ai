@@ -108,11 +108,11 @@ body {
     right: 0;
     bottom: 0;
     background: url(../../assets/images/frame-happy.png) center no-repeat;
-    background-size: 80%;
+    background-size: 100%;
     z-index: 2;
     opacity: 0;
     transition: opacity .25s ease-in-out;
-    height: 70%;
+    height: 75%;
   }
 
   .meter-happy>.displacement, .meter-superhappy>.displacement, .meter-growhappy>.displacement {
