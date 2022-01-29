@@ -14,6 +14,11 @@ body {
     height: 100%;
     z-index: 1;
   }
+  @media (max-width: 560px) {
+    .canvas {
+      transform: rotateY(180deg);
+    }
+  }
 
   .container {
     display: none;
