@@ -8,23 +8,11 @@ let displacement = 9999;
 
 //entry point :
 // entry point - launched by body.onload():
-function detect_smile() {
-  JeelizResizer.size_canvas({
-    canvasId: 'canvas',
-    isFullScreen: true,
-    callback: function(isError, bestVideoSettings){
-      JEELIZFACEFILTER.init({
-        videoSettings: bestVideoSettings,
-        // ...
-        // ...
-      });
-    }
-  });
-};
 function smile() {
   $(".btn-save").prop('value', 'Loading...');
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
+    // videoElement: "video",
     NNCpath: "src/model/",
     // videoSettings: {
     //   facingMode: 'user',

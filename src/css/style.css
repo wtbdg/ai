@@ -8,8 +8,9 @@ body {
 
   .canvas {
     object-fit: cover;
-    position: relative;
-    width: 100%;
+    transform: translate(-50vw, 0) rotateY(180deg);
+    position: absolute;
+    width: auto;
     height: 100%;
     z-index: 1;
   }
@@ -148,10 +149,8 @@ body {
   .airesult {
     line-height: 0;
     position: absolute;
-    top: 0;
-    left: 0;
     border: 0;
-    height: 100%;
+    height: auto;
     width: 100%;
   }
   .notice-desktop, .notice-landscape {
