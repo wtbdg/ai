@@ -14,7 +14,6 @@ const canvas = window.canvas = document.querySelector('#canvid');
 canvas.width = 480;
 canvas.height = 360;
 
-const button = document.querySelector('#btn-save');
 function clone_video() {
   canvas.width = video.videoWidth;
   canvas.height = video.videoHeight;

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
-  <link rel="stylesheet" href="src/css/style.css?v=1.0.5">
+  <link rel="stylesheet" href="src/css/style.css?v=1.0.6">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
@@ -43,7 +43,8 @@
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/emotion.js"></script>
   <script src="src/js/webrtc.js"></script>
-  <script src="src/js/ai.js"></script>
+  <script src="src/js/ai.js?v=1.0.0"></script>
+  <script src="src/js/ai-flip.js"></script>
   <script src="src/js/ios.js?v=1.0.4"></script>
   <script src="src/js/canvas-helper.js"></script>
   <script src="src/js/html2canvas.js" defer></script>
@@ -63,6 +64,7 @@
         $(".airesult").hide().attr("src", "").css("z-index", "0");
         $(".btn-cancel, .btn-download").hide();
         $(".btn-save, #canvas-wrap").show();
+        $(".btn-cam").css("opacity", "1");
       });
     }
     function take_snapshot() {
@@ -74,6 +76,7 @@
         $(".btn-cancel,.btn-download").show();
         $(".btn-download").attr("href", generatedImage).attr("download", "happyresult.jpeg");
         $(".btn-save, #canvas-wrap").hide();
+        $(".btn-cam").css("opacity", "0");
       });
     }
     $(".btn-cam,.btn-cancel").click(function(e) {
