@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
-  <link rel="stylesheet" href="src/css/style.css?v=1.1.0">
+  <link rel="stylesheet" href="src/css/style.css?v=1.1.1">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
@@ -22,13 +22,13 @@
     </div>
     <div class="result-wrap">
       <img src="" class="airesult" alt="" style="display: none;">
-      <form class="form-action">
-        <input class="btn btn-cancel" type=button value="Cancel" onClick="cancel_snapshot()" style="display: none;">
-        <input id="btn-save" class="btn btn-save" type=button value="Save Expression" onClick="take_snapshot()">
-        <button class="btn btn-cam" id="btn-front" style="display: none;"><img height="25" width="25" src="assets/images/icon-cam2.png" alt="Camera"></button>
-        <button class="btn btn-cam" id="btn-back"><img height="25" width="25" src="assets/images/icon-cam.png" alt="Camera"></button>
-        <a href="" class="btn btn-download" style="display: none; text-decoration: none;">Save Result</a>
-      </form>
+      <div class="form-action">
+        <button class="btn btn-cancel" onClick="cancel_snapshot()" style="opacity: 0;"><img height="25" width="25" src="assets/images/icon-cancel.png" alt="Cancel"></button>
+        <button id="btn-save" class="btn btn-save" onClick="take_snapshot()"><img height="25" width="25" src="assets/images/icon-capture.png" alt="Capture"></button>
+        <button class="btn btn-cam" id="btn-front" style="display: none;"><img height="25" width="25" src="assets/images/icon-camera.png" alt="Front Camera"></button>
+        <button class="btn btn-cam" id="btn-back"><img height="25" width="25" src="assets/images/icon-camera.png" alt="Rear Camera"></button>
+        <a href="" class="btn btn-download" style="display: none; text-decoration: none;"><img height="25" width="25" src="assets/images/icon-download.png" alt="Save"></a>
+      </div>
     </div>
   </div>
   <div class="notice-desktop">
@@ -59,12 +59,14 @@
     window.scrollTo(0,document.body.scrollHeight);
     $(".airesult").hide();
     function cancel_snapshot() {
+      
       // $("#video").removeClass("canvas-result");
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         $(".airesult").hide().attr("src", "").css("z-index", "0");
-        $(".btn-cancel, .btn-download").hide();
+        $(".btn-download").hide();
         $(".btn-save, #canvas-wrap").show();
         $(".btn-cam").css("opacity", "1");
+        $(".btn-cancel").css("opacity", "0");
       });
     }
     function take_snapshot() {
@@ -73,10 +75,10 @@
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         var generatedImage = canvas.toDataURL("image/jpeg", 1.0);
         $(".airesult").show().attr("src", generatedImage).css("z-index", "2");
-        $(".btn-cancel,.btn-download").show();
-        $(".btn-download").attr("href", generatedImage).attr("download", "happyresult.jpeg");
+        $(".btn-download").show().attr("href", generatedImage).attr("download", "happyresult.jpeg");
         $(".btn-save, #canvas-wrap").hide();
-        $(".btn-cam").css("opacity", "0");
+        $(".btn-cam, .btn-cancel").css("opacity", "0");
+        $(".btn-cancel").css("opacity", "1");
       });
     }
     $(".btn-cam,.btn-cancel").click(function(e) {
