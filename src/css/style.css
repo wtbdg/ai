@@ -11,14 +11,12 @@ body {
     transform: translate(-50vw, 0) rotateY(180deg);
     position: absolute;
     width: auto;
-    height: 100%;
+    height: 100vh;
     z-index: 1;
   }
   @media (max-width: 560px) {
     .canvas {
       transform: rotateY(180deg);
-      width: 100vw;
-      height: auto;
     }
   }
 
@@ -29,7 +27,7 @@ body {
   .canvas-wrapper {
     position: relative;
     height: 100vh;
-    width: 100%
+    width: 100vw
   }
 
   .canvas-wrapper {
