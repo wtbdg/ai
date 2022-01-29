@@ -32,7 +32,6 @@ const capture = async facingMode => {
     videoElm.srcObject = stream;
     videoElm.play();
 }
-capture('user');
 btnBack.addEventListener('click', () => {
     capture('environment');
 });
