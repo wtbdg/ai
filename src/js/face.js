@@ -33,7 +33,6 @@ function smile() {
       // $(".btn-save").prop('value', 'Save Expression');
       $(".loading").css("display", "none");
       // $("video").addClass("canvas");
-      capture();
     } //end callbackReady()
   });
 } //end main()
