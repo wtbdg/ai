@@ -1,6 +1,10 @@
 const videoElm = document.querySelector('#video');
+const canvasElm = window.canvas = document.querySelector('#canvid');
 const btnFront = document.querySelector('#btn-front');
 const btnBack = document.querySelector('#btn-back');
+
+canvasElm.width = 480;
+canvasElm.height = 360;
 
 const supports = navigator.mediaDevices.getSupportedConstraints();
 // if (!supports['facingMode']) {
@@ -10,6 +14,11 @@ const supports = navigator.mediaDevices.getSupportedConstraints();
 
 let stream;
 
+function clone_video() {
+  canvasElm.width = videoElm.videoWidth;
+  canvasElm.height = videoElm.videoHeight;
+  canvasElm.getContext('2d').drawImage(videoElm, 0, 0, canvasElm.width, canvasElm.height);
+};
 const capture = async facingMode => {
     const options = {
         audio: false,
@@ -32,6 +41,7 @@ const capture = async facingMode => {
     videoElm.srcObject = stream;
     videoElm.play();
 }
+capture('user');
 btnBack.addEventListener('click', () => {
     capture('environment');
 });

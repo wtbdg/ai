@@ -17,7 +17,7 @@
     <div id="canvas-wrap" class="canvas-wrapper">
       <canvas id="canvid" class="canvas" width="360" height="740"></canvas>
       <canvas id="canvas" class="canvas" width="360" height="740" style="display: none;"></canvas>
-      <video id="video" class="canvas" style="pointer-events: none;" controls autoplay playsInline></video>
+      <video id="video" class="canvas" style="pointer-events: none;" playsinline autoplay></video>
       <div id="displacement" class="displacement"></div>
       <div class="clearfix"></div>
     </div>
@@ -44,8 +44,8 @@
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/emotion.js"></script>
   <script src="src/js/webrtc.js"></script>
-  <script src="src/js/ai.js?v=1.0.1"></script>
-  <script src="src/js/ai-flip.js?v=1.0.1"></script>
+  <!-- <script src="src/js/ai.js?v=1.0.1"></script> -->
+  <script src="src/js/ai-flip.js?v=1.0.2"></script>
   <script src="src/js/face.js"></script>
   <script src="src/js/canvas-helper.js"></script>
   <script src="src/js/html2canvas.js" defer></script>
@@ -58,7 +58,6 @@
     //   });
     // };
     window.scrollTo(0,document.body.scrollHeight);
-    clone_video();
     $(".airesult").hide();
     function cancel_snapshot() {
       
@@ -74,6 +73,7 @@
     }
     function take_snapshot() {
       // $("#video").addClass("canvas-result");
+      clone_video();
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         var generatedImage = canvas.toDataURL("image/jpeg", 1.0);
         $(".airesult").show().attr("src", generatedImage).css("z-index", "2");
