@@ -31,8 +31,8 @@ function smile() {
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
       // $(".btn-save").prop('value', 'Save Expression');
-      $(".loading").css("display", "none");
       // $("video").addClass("canvas");
+      $(".loading").css("display", "none");
     } //end callbackReady()
   });
 } //end main()
@@ -40,6 +40,7 @@ function smile() {
 function successCallback() {
   // Call next frame
   nextFrame();
+  capture('user');
   // Add code after API is ready.
 }
 

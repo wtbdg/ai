@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
-  <link rel="stylesheet" href="src/css/style.css?v=1.1.4">
+  <link rel="stylesheet" href="src/css/style.css?v=1.1.5">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
 <body onload="capture();smile()">
+  <div class="loading">
+    <img height="80" width="80" src="assets/images/icon-loading.png" alt="Loading...">
+  </div>
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
     <div id="canvas-wrap" class="canvas-wrapper">
@@ -29,9 +32,6 @@
         <button class="btn btn-cam" id="btn-back"><img height="50" width="50" src="assets/images/icon-camera.png" alt="Rear Camera"></button>
         <a href="" class="btn btn-download" style="display: none; text-decoration: none;"><img height="50" width="50" src="assets/images/icon-download.png" alt="Save"></a>
       </div>
-      <div class="loading">
-        <img height="80" width="80" src="assets/images/icon-loading.png" alt="Loading...">
-      </div>
     </div>
   </div>
   <div class="notice-desktop">
@@ -47,7 +47,7 @@
   <script src="src/js/emotion.js"></script>
   <script src="src/js/webrtc.js"></script>
   <!-- <script src="src/js/ai.js?v=1.0.1"></script> -->
-  <script src="src/js/face.js?v=1.0.7"></script>
+  <script src="src/js/face.js?v=1.1.0"></script>
   <!-- <script src="src/js/ai.js?v=1.0.4"></script> -->
   <!-- <script src="src/js/canvas-helper.js"></script> -->
 

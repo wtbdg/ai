@@ -12,6 +12,17 @@ body {
     text-align: center;
     height: 100vh;
   }
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+  .loading>img {
+    animation: rotation 2s infinite linear;
+  }
 
   .canvas {
     object-fit: cover;
