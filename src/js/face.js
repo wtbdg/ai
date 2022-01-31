@@ -10,11 +10,12 @@ let displacement = 9999;
 // entry point - launched by body.onload():
 function smile() {
   // $(".btn-save").prop('value', 'Loading...');
+  $(".loading").css("display", "grid");
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
-    // videoElement: "video",
     NNCpath: "src/model/",
     // videoSettings: {
+    // videoElement: "video",
     //   facingMode: 'user',
     //   isAudio: false
     // },
@@ -30,6 +31,9 @@ function smile() {
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
       // $(".btn-save").prop('value', 'Save Expression');
+      $(".loading").css("display", "none");
+      // $("video").addClass("canvas");
+      capture();
     } //end callbackReady()
   });
 } //end main()
