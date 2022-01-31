@@ -11,7 +11,7 @@ body {
     transform: translate(-50vw, 0) rotateY(180deg);
     position: absolute;
     width: auto;
-    height: 100vh;
+    height: 100%;
     z-index: 1;
   }
   @media (max-width: 560px) {
@@ -33,6 +33,15 @@ body {
   .canvas-wrapper {
     background-color: midnightblue;
     line-height: 0;
+  }
+
+  .canvas-wrapper-result {
+    height: auto;
+  }
+
+  .canvas-wrapper-result .canvas {
+    height: auto;
+    width: 100%;
   }
 
   h1 {
@@ -107,12 +116,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url(../../assets/images/frame-happy.png) center no-repeat;
+    background-image: url(../../assets/images/frame-happy.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 50%;
     background-size: 100%;
     z-index: 2;
     opacity: 0;
     transition: opacity .25s ease-in-out;
-    height: 75%;
   }
 
   .meter-happy>.displacement, .meter-superhappy>.displacement, .meter-growhappy>.displacement {
@@ -156,8 +167,8 @@ body {
     line-height: 0;
     position: absolute;
     border: 0;
-    height: 100%;
-    width: auto;
+    height: auto;
+    width: 100%;
   }
   .notice-desktop, .notice-landscape {
     color: #fff;

@@ -6,30 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>AI Expression Meter</title>
-  <link rel="stylesheet" href="src/css/style.css?v=1.1.2">
+  <link rel="stylesheet" href="src/css/style.css?v=1.0.3">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
-<body onload="smile()">
+<body onload="smile();detect_smile()">
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
-    <div id="canvas-wrap" class="canvas-wrapper">
-      <canvas id="canvid" class="canvas" width="360" height="740"></canvas>
-      <canvas id="canvas" class="canvas" width="360" height="740" style="display: none;"></canvas>
-      <video id="video" class="canvas" style="pointer-events: none;" controls autoplay playsInline></video>
+    <div id="canvas-wrap" class="canvas-wrapper" data-state="0">
+      <canvas id="canvas2" class="canvas" width="360" height="740"></canvas>
+      <canvas id="canvas" class="canvas" width="360" height="740"></canvas>
       <div id="displacement" class="displacement"></div>
-      <div class="clearfix"></div>
     </div>
     <div class="result-wrap">
       <img src="" class="airesult" alt="" style="display: none;">
-      <div class="form-action">
+      <form class="form-action">
         <button class="btn btn-cancel" onClick="cancel_snapshot()" style="opacity: 0;"><img height="50" width="50" src="assets/images/icon-cancel.png" alt="Cancel"></button>
         <button id="btn-save" class="btn btn-save" onClick="take_snapshot()"><img height="50" width="50" src="assets/images/icon-capture.png" alt="Capture"></button>
         <button class="btn btn-cam" id="btn-front" style="display: none;"><img height="50" width="50" src="assets/images/icon-camera.png" alt="Front Camera"></button>
         <button class="btn btn-cam" id="btn-back"><img height="50" width="50" src="assets/images/icon-camera.png" alt="Rear Camera"></button>
-        <a href="" class="btn btn-download" style="display: none; text-decoration: none;"><img height="50" width="50" src="assets/images/icon-download.png" alt="Save"></a>
-      </div>
+        <a href="" class="btn btn-download" style="display: none; text-decoration: none;"><img height="50" width="50" src="assets/images/icon-download.png" alt="Save"></a>      </form>
     </div>
   </div>
   <div class="notice-desktop">
@@ -43,20 +40,10 @@
   <script src="src/js/jeelizFaceFilter.js"></script>
   <script src="src/js/JeelizResizer.js"></script>
   <script src="src/js/emotion.js"></script>
-  <script src="src/js/webrtc.js"></script>
-  <script src="src/js/ai.js?v=1.0.1"></script>
-  <script src="src/js/ai-flip.js?v=1.0.1"></script>
-  <script src="src/js/face.js"></script>
+  <script src="src/js/android.js"></script>
   <script src="src/js/canvas-helper.js"></script>
   <script src="src/js/html2canvas.js" defer></script>
   <script>
-    // function detect_smile() {
-    //   JeelizResizer.size_canvas({
-    //     canvasId: 'canvid',
-    //     isFullScreen: true,
-    //     callback: smile
-    //   });
-    // };
     window.scrollTo(0,document.body.scrollHeight);
     $(".airesult").hide();
     function cancel_snapshot() {
@@ -68,7 +55,6 @@
         $(".btn-save, #canvas-wrap").show();
         $(".btn-cam").css("opacity", "1");
         $(".btn-cancel").css("opacity", "0");
-        $("#canvas-wrap").removeClass("canvas-wrapper-result");
       });
     }
     function take_snapshot() {
@@ -81,7 +67,6 @@
         $(".btn-save, #canvas-wrap").hide();
         $(".btn-cam, .btn-cancel").css("opacity", "0");
         $(".btn-cancel").css("opacity", "1");
-        $("#canvas-wrap").addClass("canvas-wrapper-result");
       });
     }
     $(".btn-cam,.btn-cancel").click(function(e) {

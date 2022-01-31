@@ -1,6 +1,6 @@
 "use strict";
 
-const DISPLACEMENT_THRESHOLD = 2.5;
+const DISPLACEMENT_THRESHOLD = 0.1;
 
 let emotions = {};
 let expressions = [];
@@ -8,17 +8,56 @@ let displacement = 9999;
 
 //entry point :
 // entry point - launched by body.onload():
+function detect_smile() {
+  let CVD = null; // return of Canvas2DDisplay
+  JeelizResizer.size_canvas({
+    canvasId: 'canvas2',
+    isFullScreen: true,
+    CSSFlipX: true,
+    overSamplingFactor: 2,
+    callback: function(isError, bestVideoSettings){
+      JEELIZFACEFILTER.init({
+        canvasId: "canvas2",
+        videoSettings: bestVideoSettings,
+        callbackReady: function(errCode, spec) {
+          if (errCode) {
+            console.log(
+              "ERROR - cannot init JEELIZFACEFILTER. errCode =",
+              errCode
+            );
+            errorCallback(errCode);
+            return;
+          }
+          console.log("INFO : JEELIZFACEFILTER is ready !!!");
+          CVD = JeelizCanvas2DHelper(spec);
+          CVD.ctx.strokeStyle = 'yellow';
+          $("#canvas").hide();
+        }, //end callbackReady()
+        callbackTrack: function(detectState){
+          if (detectState.detected>0.6){
+            // draw a border around the face:
+            // const faceCoo = CVD.getCoordinates(detectState);
+            CVD.ctx.clearRect(0,0,CVD.canvas.width, CVD.canvas.height);
+            // CVD.ctx.strokeRect(faceCoo.x, faceCoo.y, faceCoo.w, faceCoo.h);
+            CVD.update_canvasTexture();
+          }
+          CVD.draw();
+        }
+      });
+    }
+  });
+};
 function smile() {
-  // $(".btn-save").prop('value', 'Loading...');
+  $(".btn-save").prop('value', 'Loading...');
+  
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
-    // videoElement: "video",
     NNCpath: "src/model/",
     // videoSettings: {
     //   facingMode: 'user',
     //   isAudio: false
     // },
-    callbackReady: function(errCode) {
+    callbackReady: function(errCode, spec) {
       if (errCode) {
         console.log(
           "ERROR - cannot init JEEFACETRANSFERAPI. errCode =",
@@ -29,7 +68,7 @@ function smile() {
       }
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
-      // $(".btn-save").prop('value', 'Save Expression');
+      $(".btn-save").prop('value', 'Save Expression');
     } //end callbackReady()
   });
 } //end main()
