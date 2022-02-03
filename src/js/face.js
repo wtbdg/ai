@@ -41,6 +41,7 @@ function smile() {
 function successCallback() {
   // Call next frame
   nextFrame();
+  $("video").addClass("canvas");
   // Add code after API is ready.
 }
 
