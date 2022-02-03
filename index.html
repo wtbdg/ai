@@ -53,6 +53,7 @@
     $(".airesult").hide();
     function cancel_snapshot() {
       capture('user');
+      smile();
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         $(".airesult").hide().attr("src", "").css("z-index", "0");
         $(".btn-download").hide();
