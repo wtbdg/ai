@@ -11,7 +11,7 @@
   <link rel="icon" href="favicon.ico" type="image/icon" />
 </head>
 
-<body onload="capture();smile()">
+<body onload="capture('user');smile()">
   <div class="loading">
     <img height="80" width="80" src="assets/images/icon-loading.png" alt="Loading...">
   </div>
@@ -52,7 +52,7 @@
     window.scrollTo(0,document.body.scrollHeight);
     $(".airesult").hide();
     function cancel_snapshot() {
-      
+      capture('user');
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         $(".airesult").hide().attr("src", "").css("z-index", "0");
         $(".btn-download").hide();
