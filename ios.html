@@ -9,6 +9,11 @@
   <link rel="stylesheet" href="src/css/style.css?v=1.1.6">
   <link rel="shortcut icon" href="favicon.ico" type="image/icon" />
   <link rel="icon" href="favicon.ico" type="image/icon" />
+  <style>
+      #canvas {
+          z-index: 2;
+      }
+  </style>
 </head>
 
 <body onload="smile()">
@@ -17,12 +22,13 @@
   </div>
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
+    <canvas id="canvas" class="canvas" width="360" height="740"></canvas>
     <div id="canvas-wrap" class="canvas-wrapper">
       <canvas id="canvid" class="canvas" width="360" height="740"></canvas>
-      <canvas id="canvas" class="canvas" width="360" height="740" style="display: none;"></canvas>
-      <video id="video" class="canvas" style="pointer-events: none;" playsinline autoplay></video>
+      <video id="video" class="canvas" style="pointer-events: none;display:none" playsinline autoplay></video>
       <div id="displacement" class="displacement"></div>
     </div>
+    
     <div class="result-wrap">
       <img src="" class="airesult" alt="" style="display: none;">
       <div class="form-action">
