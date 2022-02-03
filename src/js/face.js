@@ -14,11 +14,11 @@ function smile() {
   JEEFACETRANSFERAPI.init({
     canvasId: "canvas",
     NNCpath: "src/model/",
-    // videoSettings: {
-    // videoElement: "video",
-    //   facingMode: 'user',
-    //   isAudio: false
-    // },
+    videoSettings: {
+      // videoElement: "#video",
+      facingMode: 'user',
+      isAudio: false
+    },
     callbackReady: function(errCode) {
       if (errCode) {
         console.log(
@@ -31,7 +31,7 @@ function smile() {
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
       // $(".btn-save").prop('value', 'Save Expression');
-      // $("video").addClass("canvas");
+      $("video").addClass("canvas");
       $(".loading").css("display", "none");
     } //end callbackReady()
   });
@@ -40,7 +40,6 @@ function smile() {
 function successCallback() {
   // Call next frame
   nextFrame();
-  capture('user');
   // Add code after API is ready.
 }
 
