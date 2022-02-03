@@ -32,6 +32,7 @@ function smile() {
       console.log("INFO : JEEFACETRANSFERAPI is ready !!!");
       successCallback();
       // $(".btn-save").prop('value', 'Save Expression');
+      JEEFACETRANSFERAPI.set_color([0, 0, 0]);
       $("video").addClass("canvas");
       $(".loading").css("display", "none");
     } //end callbackReady()
