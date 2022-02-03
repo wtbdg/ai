@@ -33,7 +33,7 @@
       <img src="" class="airesult" alt="" style="display: none;">
       <div class="form-action">
         <button class="btn btn-cancel" onClick="cancel_snapshot()" style="visibility: hidden;"><img height="50" width="50" src="assets/images/icon-cancel.png" alt="Cancel"></button>
-        <button id="btn-save" class="btn btn-save" onClick="take_snapshot()"><img height="50" width="50" src="assets/images/icon-capture.png" alt="Capture"></button>
+        <button id="btn-save" class="btn btn-save" onClick="clone_video();take_snapshot()"><img height="50" width="50" src="assets/images/icon-capture.png" alt="Capture"></button>
         <button class="btn btn-cam" id="btn-front" style="visibility: hidden; display:none;"><img height="50" width="50" src="assets/images/icon-camera.png" alt="Front Camera"></button>
         <button class="btn btn-cam" id="btn-back" style="visibility: hidden;"><img height="50" width="50" src="assets/images/icon-camera.png" alt="Rear Camera"></button>
         <a href="" class="btn btn-download" style="display: none; text-decoration: none;"><img height="50" width="50" src="assets/images/icon-download.png" alt="Save"></a>
@@ -71,8 +71,6 @@
       });
     }
     function take_snapshot() {
-
-      clone_video();
       
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         var generatedImage = canvas.toDataURL("image/jpeg", 1.0);
