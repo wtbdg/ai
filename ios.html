@@ -23,7 +23,7 @@
   <div class="container">
     <h1 style="display: none;">AI Expression Meter</h1>
     <canvas id="canvas" class="canvas" width="360" height="740" style="transform: rotateY(0deg);"></canvas>
-    <video id="video" class="canvas" style="pointer-events: none; display:none" playsinline autoplay></video>
+    <video id="video" class="canvas" style="pointer-events: none;" playsinline autoplay></video>
     <div id="canvas-wrap" class="canvas-wrapper">
       <canvas id="canvid" class="canvas" width="360" height="740"></canvas>
       <div id="displacement" class="displacement"></div>
@@ -66,6 +66,7 @@
         $(".btn-save, #canvas-wrap").show();
         $(".btn-cam").css("opacity", "1");
         $(".btn-cancel").css("visibility", "hidden");
+        $("#canvas").css("visibility", "visible");
         $("#canvas-wrap").removeClass("canvas-wrapper-result");
       });
     }
@@ -80,14 +81,15 @@
         $(".btn-save, #canvas-wrap").hide();
         $(".btn-cam").css("opacity", "0");
         $(".btn-cancel").css("visibility", "visible");
+        $("#canvas").css("visibility", "hidden");
         $("#canvas-wrap").addClass("canvas-wrapper-result");
       });
     }
-    $(".btn-cam,.btn-cancel").click(function(e) {
-        $("#btn-front").toggle();
-        $("#btn-back").toggle();
-        e.preventDefault();
-    });
+    // $(".btn-cam,.btn-cancel").click(function(e) {
+    //     $("#btn-front").toggle();
+    //     $("#btn-back").toggle();
+    //     e.preventDefault();
+    // });
   </script>
 </body>
 
