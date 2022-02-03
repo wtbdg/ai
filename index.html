@@ -45,16 +45,17 @@
   <!-- <script src="src/js/jeelizFaceFilter.js"></script> -->
   <script src="src/js/emotion.js"></script>
   <script src="src/js/webrtc.js"></script>
-  <script src="src/js/face.js?v=1.1.0"></script>
+  <script src="src/js/face.js?v=1.1.5"></script>
   <script src="src/js/ai-flip.js?v=1.0.6" defer></script>
   <script src="src/js/html2canvas.js" defer></script>
   <script>
     window.scrollTo(0,document.body.scrollHeight);
     $(".airesult").hide();
-    capture('user');
     function cancel_snapshot() {
+      const videoElm = document.querySelector('video');
       capture('user');
       nextFrame();
+      requestAnimationFrame(nextFrame);
       html2canvas(document.getElementById("canvas-wrap")).then(function (canvas) {
         $(".airesult").hide().attr("src", "").css("z-index", "0");
         $(".btn-download").hide();

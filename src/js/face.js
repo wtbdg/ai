@@ -16,6 +16,7 @@ function smile() {
     NNCpath: "src/model/",
     videoSettings: {
       // videoElement: "#video",
+      deviceId: 'video',
       facingMode: 'user',
       isAudio: false
     },
