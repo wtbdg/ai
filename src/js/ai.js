@@ -9,7 +9,7 @@
 'use strict';
 
 // Put variables in global scope to make them available to the browser console.
-const video = document.querySelector('video');
+const video = document.querySelector('#video');
 const canvas = window.canvas = document.querySelector('#canvid');
 canvas.width = 480;
 canvas.height = 360;
