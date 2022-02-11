@@ -9,6 +9,7 @@ let displacement = 9999;
 //entry point :
 // entry point - launched by body.onload():
 function smile() {
+  JEEFACETRANSFERAPI.set_size(360,740);
   // $(".btn-save").prop('value', 'Loading...');
   $(".loading").css("display", "grid");
   JEEFACETRANSFERAPI.init({
@@ -46,9 +47,13 @@ function successCallback() {
   // Add code after API is ready.
 }
 
-function errorCallback(errorCode) {
+function errorCallback() {
   // Add code to handle the error
-  alert("Some error occured " + errorCode);
+  // alert("Some error occured " + errorCode);
+  // setTimeout(function(){
+  //   location = ''
+  // },2000)
+  $("body").css("display","grid").css("place-items","center").html("<a style='display: block; color:#fff' href='javascript:location.reload(true)'>Refresh</a>")
 }
 
 function nextFrame() {
